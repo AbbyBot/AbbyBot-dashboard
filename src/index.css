@@ -1,0 +1,9 @@
+@import "@fontsource/roboto";
+@import "@fontsource/roboto-condensed";
+:root {
+    font-family: "Roboto";
+}
+
+h1 {
+  font-size: 40px;
+}
