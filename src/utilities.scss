@@ -1,8 +1,16 @@
-// Text
+// Text styles
 .text-light {
     color: white;
 }
-
 .text-dark {
     color: black;
+}
+.text-italic {
+    font-style: italic;
+}
+.text-condensed {
+    font-family: "Roboto Condensed";
+}
+.text-mono {
+    font-family: "Roboto Mono";
 }
