@@ -1,0 +1,82 @@
+/* abby color scheme */
+$abby-background: #B45428;
+$abby-primary: #3E4D76;
+$abby-secondary: #28903E;
+$abby-tertiary: #F4D700;
+$abby-warning: #703B59;
+$abby-navbar: #333333;
+$hover-darken-percent: 2%;
+$active-darken-percent: 5%;
+
+/* Abby Theme class */
+.abby-theme {
+  // Background colors
+  .bg { background-color: $abby-background }
+  .bg-primary { background-color: $abby-primary }
+  .bg-secondary { background-color: $abby-secondary }
+  .bg-tertiary { background-color: $abby-tertiary }
+  .bg-warning { background-color: $abby-warning }
+  .bg-navbar { background-color: $abby-navbar }
+
+  // Buttons themes
+  .btn {
+    background-color: $abby-background; 
+    color: white;
+    &:hover {
+      background-color: darken($abby-background, $hover-darken-percent);
+    } 
+    &:active {
+      background-color: darken($abby-background, $active-darken-percent);
+    }
+  }
+  .btn-primary {
+    background-color: $abby-primary;
+    color: white;
+    &:hover {
+      background-color: darken($abby-primary, $hover-darken-percent);
+    }
+    &:active {
+      background-color: darken($abby-primary, $active-darken-percent);
+    }
+  }
+  .btn-secondary {
+    background-color: $abby-secondary;
+    color: white;
+    &:hover {
+      background-color: darken($abby-secondary, $hover-darken-percent); 
+    }
+    &:active {
+      background-color: darken($abby-secondary, $active-darken-percent);
+    }
+  }
+  .btn-tertiary {
+    background-color: $abby-tertiary;
+    color: black;
+    &:hover {
+      background-color: darken($abby-tertiary, $hover-darken-percent); 
+    }
+    &:active {
+      background-color: darken($abby-tertiary, $active-darken-percent);
+    }
+  }
+  .btn-warning {
+    background-color: $abby-warning;
+    color: white;
+    &:hover {
+      background-color: darken($abby-warning, $hover-darken-percent); 
+    }
+    &:active {
+      background-color: darken($abby-warning, $active-darken-percent);
+    }
+  }
+  .btn-navbar {
+    background-color: $abby-navbar;
+    color: white;
+    &:hover {
+      background-color: darken($abby-navbar, $hover-darken-percent); 
+    }
+    &:active {
+      background-color: darken($abby-navbar, $active-darken-percent);
+    }
+  }
+}

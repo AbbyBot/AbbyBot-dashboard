@@ -1,0 +1,82 @@
+/* YOUR-THEME-NAME color scheme */
+$YOUR-THEME-NAME-background: #B45428;
+$YOUR-THEME-NAME-primary: #3E4D76;
+$YOUR-THEME-NAME-secondary: #28903E;
+$YOUR-THEME-NAME-tertiary: #F4D700;
+$YOUR-THEME-NAME-warning: #703B59;
+$YOUR-THEME-NAME-navbar: #333333;
+$hover-darken-percent: 2%;
+$active-darken-percent: 5%;
+
+/* YOUR-THEME-NAME Theme class */
+.YOUR-THEME-NAME-theme {
+  // Background colors
+  .bg { background-color: $YOUR-THEME-NAME-background }
+  .bg-primary { background-color: $YOUR-THEME-NAME-primary }
+  .bg-secondary { background-color: $YOUR-THEME-NAME-secondary }
+  .bg-tertiary { background-color: $YOUR-THEME-NAME-tertiary }
+  .bg-warning { background-color: $YOUR-THEME-NAME-warning }
+  .bg-navbar { background-color: $YOUR-THEME-NAME-navbar }
+
+  // Buttons themes
+  .btn {
+    background-color: $YOUR-THEME-NAME-background; 
+    color: white;
+    &:hover {
+      background-color: darken($YOUR-THEME-NAME-background, $hover-darken-percent);
+    } 
+    &:active {
+      background-color: darken($YOUR-THEME-NAME-background, $active-darken-percent);
+    }
+  }
+  .btn-primary {
+    background-color: $YOUR-THEME-NAME-primary;
+    color: white;
+    &:hover {
+      background-color: darken($YOUR-THEME-NAME-primary, $hover-darken-percent);
+    }
+    &:active {
+      background-color: darken($YOUR-THEME-NAME-primary, $active-darken-percent);
+    }
+  }
+  .btn-secondary {
+    background-color: $YOUR-THEME-NAME-secondary;
+    color: white;
+    &:hover {
+      background-color: darken($YOUR-THEME-NAME-secondary, $hover-darken-percent); 
+    }
+    &:active {
+      background-color: darken($YOUR-THEME-NAME-secondary, $active-darken-percent);
+    }
+  }
+  .btn-tertiary {
+    background-color: $YOUR-THEME-NAME-tertiary;
+    color: black;
+    &:hover {
+      background-color: darken($YOUR-THEME-NAME-tertiary, $hover-darken-percent); 
+    }
+    &:active {
+      background-color: darken($YOUR-THEME-NAME-tertiary, $active-darken-percent);
+    }
+  }
+  .btn-warning {
+    background-color: $YOUR-THEME-NAME-warning;
+    color: white;
+    &:hover {
+      background-color: darken($YOUR-THEME-NAME-warning, $hover-darken-percent); 
+    }
+    &:active {
+      background-color: darken($YOUR-THEME-NAME-warning, $active-darken-percent);
+    }
+  }
+  .btn-navbar {
+    background-color: $YOUR-THEME-NAME-navbar;
+    color: white;
+    &:hover {
+      background-color: darken($YOUR-THEME-NAME-navbar, $hover-darken-percent); 
+    }
+    &:active {
+      background-color: darken($YOUR-THEME-NAME-navbar, $active-darken-percent);
+    }
+  }
+}
