@@ -4,7 +4,8 @@
 @import "./utilities.scss";
 
 /* Global and variable settings */
-:root { font-family: "Roboto" }
+:root { font-family: "Roboto"; }
+body { margin: 0; padding: 0; transition: 0.3s }
 
 /* General elements styles */
 h1 { font-size: 40px }
@@ -20,3 +21,4 @@ button:hover { cursor: pointer }
 
 /* Themes */
 @import "./themes/abby-theme.scss";
+@import "./themes/dozer-theme.scss";

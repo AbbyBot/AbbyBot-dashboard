@@ -1,0 +1,164 @@
+/* dozer color scheme */
+$dozer-background: #484848;
+$dozer-primary: #A8272E;
+$dozer-secondary: #CCAD43;
+$dozer-tertiary: #878787;
+$dozer-warning: #CB383A;
+$dozer-navbar: #000000;
+$dozer-navbar-text: #ffffff;
+$hover-darken-percent: 2%;
+$active-darken-percent: 5%;
+
+/* dozer Theme class */
+.dozer-theme {
+
+  // Background colors
+  .bg {
+    background-color: $dozer-background
+  }
+
+  .bg-primary {
+    background-color: $dozer-primary
+  }
+
+  .bg-secondary {
+    background-color: $dozer-secondary
+  }
+
+  .bg-tertiary {
+    background-color: $dozer-tertiary
+  }
+
+  .bg-warning {
+    background-color: $dozer-warning
+  }
+
+  .bg-navbar {
+    background-color: $dozer-navbar
+  }
+
+  // Navbar & Header themes
+  .header {
+    display: flex;
+    width: 100%;
+    padding: 7px 0px;
+  }
+
+  .nav {
+    display: flex;
+    user-select: none;
+    list-style: none;
+    gap: 10px;
+
+    .nav-item {
+      color: $dozer-navbar-text;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    user-select: none;
+  }
+
+  // Buttons themes
+  .btn {
+    background-color: $dozer-background;
+    color: white;
+
+    &:hover {
+      background-color: darken($dozer-background, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($dozer-background, $active-darken-percent);
+    }
+  }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 10px;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
+  .btn-primary {
+    background-color: $dozer-primary;
+    color: white;
+
+    &:hover {
+      background-color: darken($dozer-primary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($dozer-primary, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary {
+    background-color: $dozer-secondary;
+    color: white;
+
+    &:hover {
+      background-color: darken($dozer-secondary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($dozer-secondary, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary {
+    background-color: $dozer-tertiary;
+    color: black;
+
+    &:hover {
+      background-color: darken($dozer-tertiary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($dozer-tertiary, $active-darken-percent);
+    }
+  }
+
+  .btn-warning {
+    background-color: $dozer-warning;
+    color: white;
+
+    &:hover {
+      background-color: darken($dozer-warning, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($dozer-warning, $active-darken-percent);
+    }
+  }
+
+  .btn-navbar {
+    background-color: $dozer-navbar;
+    color: white;
+
+    &:hover {
+      background-color: darken($dozer-navbar, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($dozer-navbar, $active-darken-percent);
+    }
+  }
+}

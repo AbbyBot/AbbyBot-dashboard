@@ -5,76 +5,158 @@ $abby-secondary: #28903E;
 $abby-tertiary: #F4D700;
 $abby-warning: #703B59;
 $abby-navbar: #333333;
+$abby-navbar-text: #ffffff;
 $hover-darken-percent: 2%;
 $active-darken-percent: 5%;
 
 /* Abby Theme class */
 .abby-theme {
+
   // Background colors
-  .bg { background-color: $abby-background }
-  .bg-primary { background-color: $abby-primary }
-  .bg-secondary { background-color: $abby-secondary }
-  .bg-tertiary { background-color: $abby-tertiary }
-  .bg-warning { background-color: $abby-warning }
-  .bg-navbar { background-color: $abby-navbar }
+  .bg {
+    background-color: $abby-background
+  }
+
+  .bg-primary {
+    background-color: $abby-primary
+  }
+
+  .bg-secondary {
+    background-color: $abby-secondary
+  }
+
+  .bg-tertiary {
+    background-color: $abby-tertiary
+  }
+
+  .bg-warning {
+    background-color: $abby-warning
+  }
+
+  .bg-navbar {
+    background-color: $abby-navbar
+  }
+
+  // Navbar & Header themes
+  .header {
+    display: flex;
+    width: 100%;
+    padding: 7px 0px;
+  }
+
+  .nav {
+    display: flex;
+    user-select: none;
+    list-style: none;
+    gap: 10px;
+
+    .nav-item {
+      color: $abby-navbar-text;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    user-select: none;
+  }
 
   // Buttons themes
   .btn {
-    background-color: $abby-background; 
+    background-color: $abby-background;
     color: white;
+
     &:hover {
       background-color: darken($abby-background, $hover-darken-percent);
-    } 
+    }
+
     &:active {
       background-color: darken($abby-background, $active-darken-percent);
     }
   }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 10px;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
   .btn-primary {
     background-color: $abby-primary;
     color: white;
+
     &:hover {
       background-color: darken($abby-primary, $hover-darken-percent);
     }
+
     &:active {
       background-color: darken($abby-primary, $active-darken-percent);
     }
   }
+
   .btn-secondary {
     background-color: $abby-secondary;
     color: white;
+
     &:hover {
-      background-color: darken($abby-secondary, $hover-darken-percent); 
+      background-color: darken($abby-secondary, $hover-darken-percent);
     }
+
     &:active {
       background-color: darken($abby-secondary, $active-darken-percent);
     }
   }
+
   .btn-tertiary {
     background-color: $abby-tertiary;
     color: black;
+
     &:hover {
-      background-color: darken($abby-tertiary, $hover-darken-percent); 
+      background-color: darken($abby-tertiary, $hover-darken-percent);
     }
+
     &:active {
       background-color: darken($abby-tertiary, $active-darken-percent);
     }
   }
+
   .btn-warning {
     background-color: $abby-warning;
     color: white;
+
     &:hover {
-      background-color: darken($abby-warning, $hover-darken-percent); 
+      background-color: darken($abby-warning, $hover-darken-percent);
     }
+
     &:active {
       background-color: darken($abby-warning, $active-darken-percent);
     }
   }
+
   .btn-navbar {
     background-color: $abby-navbar;
     color: white;
+
     &:hover {
-      background-color: darken($abby-navbar, $hover-darken-percent); 
+      background-color: darken($abby-navbar, $hover-darken-percent);
     }
+
     &:active {
       background-color: darken($abby-navbar, $active-darken-percent);
     }

@@ -5,6 +5,7 @@ $YOUR-THEME-NAME-secondary: #28903E;
 $YOUR-THEME-NAME-tertiary: #F4D700;
 $YOUR-THEME-NAME-warning: #703B59;
 $YOUR-THEME-NAME-navbar: #333333;
+$YOUR-THEME-NAME-danger: #D32E31;
 $hover-darken-percent: 2%;
 $active-darken-percent: 5%;
 
@@ -77,6 +78,16 @@ $active-darken-percent: 5%;
     }
     &:active {
       background-color: darken($YOUR-THEME-NAME-navbar, $active-darken-percent);
+    }
+  }
+  .btn-danger {
+    background-color: $YOUR-THEME-NAME-danger;
+    color: white;
+    &:hover {
+      background-color: darken($YOUR-THEME-NAME-danger, $hover-darken-percent); 
+    }
+    &:active {
+      background-color: darken($YOUR-THEME-NAME-danger, $active-darken-percent);
     }
   }
 }
