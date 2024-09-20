@@ -5,5 +5,9 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <Home />
+    },
+    {
+        path: "/auth",
+        element: <div>Loggin in... please wait</div>
     }
 ])

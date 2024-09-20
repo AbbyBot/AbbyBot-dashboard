@@ -1,6 +1,6 @@
 import abbyLogo from '../assets/abbybot-logo.png';
-import { ChartLine, Globe, Globe2, LogIn } from 'lucide-react';
-
+import { ChartLine, Globe, LogIn } from 'lucide-react';
+import { DISCORD_BASE_URL } from '../env'; 
 export function Header() {
     return <header className="bg-navbar header">
         <nav className='container navbar'>
@@ -29,7 +29,7 @@ export function Header() {
             <div>
                 <ul className='nav'>
                     <li className='nav-item'>
-                        <button className='btn-link text-condensed'>
+                        <button className='btn-link text-condensed' onClick={() => window.location.href = `${DISCORD_BASE_URL}`}>
                             <LogIn color='white' size={16} />
                             Login
                         </button>
