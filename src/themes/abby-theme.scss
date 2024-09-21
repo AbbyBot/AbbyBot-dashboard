@@ -6,6 +6,7 @@ $abby-tertiary: #F4D700;
 $abby-warning: #703B59;
 $abby-navbar: #333333;
 $abby-navbar-text: #ffffff;
+$abby-navbar-text-secondary: darken(#ffffff, 20%);
 $hover-darken-percent: 2%;
 $active-darken-percent: 5%;
 
@@ -49,7 +50,6 @@ $active-darken-percent: 5%;
     user-select: none;
     list-style: none;
     gap: 10px;
-
     .nav-item {
       color: $abby-navbar-text;
     }
@@ -159,6 +159,45 @@ $active-darken-percent: 5%;
 
     &:active {
       background-color: darken($abby-navbar, $active-darken-percent);
+    }
+  }
+
+  .loader {
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: $abby-tertiary;
+    box-shadow: 0 0 0 0 darken($abby-tertiary,  10%);
+    animation: l1 1s infinite;
+  }
+
+  .text-tertiary {
+    color: $abby-tertiary;
+  }
+
+  .text-primary {
+    color: $abby-primary;
+  }
+
+  .text-secondary {
+    color: $abby-secondary;
+  }
+
+  .text-warning {
+    color: $abby-warning;
+  }
+
+  .text-navbar {
+    color: $abby-navbar;
+  }
+  
+  .text-navbar-text {
+    color: $abby-navbar-text;
+  }
+
+  @keyframes l1 {
+    100% {
+      box-shadow: 0 0 0 30px #0000
     }
   }
 }

@@ -5,6 +5,9 @@
 .text-dark {
     color: black;
 }
+.text-secondary {
+    color: darken(#ffffff, 30%) !important;
+} 
 .text-italic {
     font-style: italic;
 }
@@ -13,6 +16,9 @@
 }
 .text-mono {
     font-family: "Roboto Mono";
+}
+.text-italic {
+    font-style: italic;
 }
 .container {
     margin: 0% 1%;

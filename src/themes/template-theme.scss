@@ -1,93 +1,203 @@
-/* YOUR-THEME-NAME color scheme */
-$YOUR-THEME-NAME-background: #B45428;
-$YOUR-THEME-NAME-primary: #3E4D76;
-$YOUR-THEME-NAME-secondary: #28903E;
-$YOUR-THEME-NAME-tertiary: #F4D700;
-$YOUR-THEME-NAME-warning: #703B59;
-$YOUR-THEME-NAME-navbar: #333333;
-$YOUR-THEME-NAME-danger: #D32E31;
+/* yourthemename color scheme */
+$yourthemename-background: #B45428;
+$yourthemename-primary: #3E4D76;
+$yourthemename-secondary: #28903E;
+$yourthemename-tertiary: #F4D700;
+$yourthemename-warning: #703B59;
+$yourthemename-navbar: #333333;
+$yourthemename-navbar-text: #ffffff;
+$yourthemename-navbar-text-secondary: darken(#ffffff, 20%);
 $hover-darken-percent: 2%;
 $active-darken-percent: 5%;
 
-/* YOUR-THEME-NAME Theme class */
-.YOUR-THEME-NAME-theme {
+/* yourthemename Theme class */
+.yourthemename-theme {
+
   // Background colors
-  .bg { background-color: $YOUR-THEME-NAME-background }
-  .bg-primary { background-color: $YOUR-THEME-NAME-primary }
-  .bg-secondary { background-color: $YOUR-THEME-NAME-secondary }
-  .bg-tertiary { background-color: $YOUR-THEME-NAME-tertiary }
-  .bg-warning { background-color: $YOUR-THEME-NAME-warning }
-  .bg-navbar { background-color: $YOUR-THEME-NAME-navbar }
+  .bg {
+    background-color: $yourthemename-background
+  }
+
+  .bg-primary {
+    background-color: $yourthemename-primary
+  }
+
+  .bg-secondary {
+    background-color: $yourthemename-secondary
+  }
+
+  .bg-tertiary {
+    background-color: $yourthemename-tertiary
+  }
+
+  .bg-warning {
+    background-color: $yourthemename-warning
+  }
+
+  .bg-navbar {
+    background-color: $yourthemename-navbar
+  }
+
+  // Navbar & Header themes
+  .header {
+    display: flex;
+    width: 100%;
+    padding: 7px 0px;
+  }
+
+  .nav {
+    display: flex;
+    user-select: none;
+    list-style: none;
+    gap: 10px;
+    .nav-item {
+      color: $yourthemename-navbar-text;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    user-select: none;
+  }
 
   // Buttons themes
   .btn {
-    background-color: $YOUR-THEME-NAME-background; 
+    background-color: $yourthemename-background;
     color: white;
+
     &:hover {
-      background-color: darken($YOUR-THEME-NAME-background, $hover-darken-percent);
-    } 
+      background-color: darken($yourthemename-background, $hover-darken-percent);
+    }
+
     &:active {
-      background-color: darken($YOUR-THEME-NAME-background, $active-darken-percent);
+      background-color: darken($yourthemename-background, $active-darken-percent);
     }
   }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 10px;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
   .btn-primary {
-    background-color: $YOUR-THEME-NAME-primary;
+    background-color: $yourthemename-primary;
     color: white;
+
     &:hover {
-      background-color: darken($YOUR-THEME-NAME-primary, $hover-darken-percent);
+      background-color: darken($yourthemename-primary, $hover-darken-percent);
     }
+
     &:active {
-      background-color: darken($YOUR-THEME-NAME-primary, $active-darken-percent);
+      background-color: darken($yourthemename-primary, $active-darken-percent);
     }
   }
+
   .btn-secondary {
-    background-color: $YOUR-THEME-NAME-secondary;
+    background-color: $yourthemename-secondary;
     color: white;
+
     &:hover {
-      background-color: darken($YOUR-THEME-NAME-secondary, $hover-darken-percent); 
+      background-color: darken($yourthemename-secondary, $hover-darken-percent);
     }
+
     &:active {
-      background-color: darken($YOUR-THEME-NAME-secondary, $active-darken-percent);
+      background-color: darken($yourthemename-secondary, $active-darken-percent);
     }
   }
+
   .btn-tertiary {
-    background-color: $YOUR-THEME-NAME-tertiary;
+    background-color: $yourthemename-tertiary;
     color: black;
+
     &:hover {
-      background-color: darken($YOUR-THEME-NAME-tertiary, $hover-darken-percent); 
+      background-color: darken($yourthemename-tertiary, $hover-darken-percent);
     }
+
     &:active {
-      background-color: darken($YOUR-THEME-NAME-tertiary, $active-darken-percent);
+      background-color: darken($yourthemename-tertiary, $active-darken-percent);
     }
   }
+
   .btn-warning {
-    background-color: $YOUR-THEME-NAME-warning;
+    background-color: $yourthemename-warning;
     color: white;
+
     &:hover {
-      background-color: darken($YOUR-THEME-NAME-warning, $hover-darken-percent); 
+      background-color: darken($yourthemename-warning, $hover-darken-percent);
     }
+
     &:active {
-      background-color: darken($YOUR-THEME-NAME-warning, $active-darken-percent);
+      background-color: darken($yourthemename-warning, $active-darken-percent);
     }
   }
+
   .btn-navbar {
-    background-color: $YOUR-THEME-NAME-navbar;
+    background-color: $yourthemename-navbar;
     color: white;
+
     &:hover {
-      background-color: darken($YOUR-THEME-NAME-navbar, $hover-darken-percent); 
+      background-color: darken($yourthemename-navbar, $hover-darken-percent);
     }
+
     &:active {
-      background-color: darken($YOUR-THEME-NAME-navbar, $active-darken-percent);
+      background-color: darken($yourthemename-navbar, $active-darken-percent);
     }
   }
-  .btn-danger {
-    background-color: $YOUR-THEME-NAME-danger;
-    color: white;
-    &:hover {
-      background-color: darken($YOUR-THEME-NAME-danger, $hover-darken-percent); 
-    }
-    &:active {
-      background-color: darken($YOUR-THEME-NAME-danger, $active-darken-percent);
+
+  .loader {
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: $yourthemename-tertiary;
+    box-shadow: 0 0 0 0 darken($yourthemename-tertiary,  10%);
+    animation: l1 1s infinite;
+  }
+
+  .text-tertiary {
+    color: $yourthemename-tertiary;
+  }
+
+  .text-primary {
+    color: $yourthemename-primary;
+  }
+
+  .text-secondary {
+    color: $yourthemename-secondary;
+  }
+
+  .text-warning {
+    color: $yourthemename-warning;
+  }
+
+  .text-navbar {
+    color: $yourthemename-navbar;
+  }
+  
+  .text-navbar-text {
+    color: $yourthemename-navbar-text;
+  }
+
+  @keyframes l1 {
+    100% {
+      box-shadow: 0 0 0 30px #0000
     }
   }
 }
