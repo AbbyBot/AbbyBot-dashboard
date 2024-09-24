@@ -5,7 +5,7 @@
 
 /* Global and variable settings */
 :root { font-family: "Roboto"; }
-body { margin: 0; padding: 0; transition: 0.3s }
+body { margin: 0;  transition: 0.3s }
 
 /* General elements styles */
 h1 { font-size: 40px }
@@ -14,11 +14,16 @@ button {
   border: 0;
   border-radius: 9999px;
   padding: 15px;
+  text-wrap: nowrap;
   font-weight: 600;
   transition: 0.1s;
+  &:active { transform: scale(0.95) }
 }
 button:hover { cursor: pointer }
 
 /* Themes */
 @import "./themes/abby-theme.scss";
-@import "./themes/dozer-theme.scss";
+@import "./themes/D0Z3R-theme.scss";
+@import "./themes/node-theme.scss";
+@import "./themes/python-theme.scss";
+@import "./themes/template-theme.scss";

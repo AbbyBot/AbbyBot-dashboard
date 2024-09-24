@@ -30,3 +30,17 @@
 .mt-4 {
     margin-top: 60px;
 }
+
+.circled {
+    border-radius: 50%;
+}
+
+.rounded {  
+    border-radius: 9999px;
+}
+
+.dropdown-button {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+}

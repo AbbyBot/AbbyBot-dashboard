@@ -1,8 +1,5 @@
-import { Header } from "../../components/Header";
-
 export default function Home() {
     return <>
-        <Header></Header>
         <main className="container-md mt-4">
             <div style={{maxWidth: 563, marginBottom: "50px"}}>
                 <h1 className="text-light">

@@ -61,6 +61,12 @@ $active-darken-percent: 5%;
     justify-content: space-between;
   }
 
+  // header dropdown
+  .dropdown-menu li a:hover {
+    background-color: $yourthemename-navbar;
+    color: white;
+  }
+
   .brand {
     display: flex;
     align-items: center;

@@ -50,22 +50,38 @@ $active-darken-percent: 5%;
     user-select: none;
     list-style: none;
     gap: 10px;
+
     .nav-item {
       color: $abby-navbar-text;
     }
   }
 
+  // this !!
   .navbar {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
   }
 
+  // header dropdown
+  .dropdown-menu li a:hover {
+    background-color: $abby-navbar;
+    color: white;
+  }
+
+  // this !!
   .brand {
     display: flex;
     align-items: center;
     gap: 5px;
     user-select: none;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &:active {
+      transform: scale(0.95)
+    }
   }
 
   // Buttons themes
@@ -167,7 +183,7 @@ $active-darken-percent: 5%;
     aspect-ratio: 1;
     border-radius: 50%;
     background: $abby-tertiary;
-    box-shadow: 0 0 0 0 darken($abby-tertiary,  10%);
+    box-shadow: 0 0 0 0 darken($abby-tertiary, 10%);
     animation: l1 1s infinite;
   }
 
@@ -190,10 +206,12 @@ $active-darken-percent: 5%;
   .text-navbar {
     color: $abby-navbar;
   }
-  
+
   .text-navbar-text {
     color: $abby-navbar-text;
   }
+
+
 
   @keyframes l1 {
     100% {
