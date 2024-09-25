@@ -6,7 +6,7 @@ export default function Dashboard() {
 
   return <>
     {
-      user ? <main className="container-md">
+      user ? <main className="container">
         <div style={{ maxWidth: 690, marginBottom: "50px" }}>
           <h1 className="text-light">Welcome to AbbyBot's dashboard,
             <span className="text-tertiary text-italic"> {user.username}</span>

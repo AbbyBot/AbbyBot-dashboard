@@ -1,26 +1,26 @@
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 
-const Dropdown = ({show, children}: any ) => {
-    const [showModal, setShowModal] = useState(false)
-    useEffect(() => {
-        setShowModal(showModal)
-    }, [show])
-    return <>
-        {showModal && children}
-    </>
-}
-
-const MenuItem = ({children}:any) => {
-    return <>
+const Dropdown = ({ children }: any) => {
+    return <div className="dropdown">
         {children}
+    </div>
+}
+const MenuItem = ({onClick, children }: any) => {
+    return <button className="dropdown-item" onClick={onClick}>
+        {children}
+    </button>
+}
+const DropdownBody = ({ show, children }: any) => {
+    return <>
+       {show && <div className="dropdown-body">
+            {children}
+        </div>}
     </>
 }
-
-
-const DropdownButton = ({onClick ,children} : any) => {
+const DropdownButton = ({ onClick, children }: any) => {
     return <>
         <button className="btn-link text-condensed dropdown-button" onClick={onClick}>
             {children}
@@ -28,5 +28,7 @@ const DropdownButton = ({onClick ,children} : any) => {
         </button>
     </>
 }
-
-export { Dropdown, DropdownButton, MenuItem }
+Dropdown.Button = DropdownButton
+Dropdown.Item = MenuItem
+Dropdown.Body = DropdownBody
+export { Dropdown }

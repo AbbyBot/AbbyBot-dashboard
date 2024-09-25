@@ -19,6 +19,9 @@ button {
   transition: 0.1s;
   &:active { transform: scale(0.95) }
 }
+a {
+  text-decoration: none;
+}
 button:hover { cursor: pointer }
 
 /* Themes */

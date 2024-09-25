@@ -5,6 +5,7 @@ import Layout from "./routes/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./routes/Dashboard";
 import Profile from "./routes/Profile";
+import TestComponents from "./routes/TestComponents";
 
 export const router = createBrowserRouter([
     {
@@ -34,5 +35,9 @@ export const router = createBrowserRouter([
     {
         path: "/auth",
         element: <Auth />
+    },
+    {
+        path: "/test-components",
+        element: <TestComponents />
     }
 ])

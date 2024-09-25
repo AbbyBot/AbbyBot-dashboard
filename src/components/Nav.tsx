@@ -5,7 +5,7 @@ import { DISCORD_AVATAR_URL, DISCORD_BASE_URL } from '../env'
 import { AuthContext } from '../context/AuthContext'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Dropdown, DropdownButton, MenuItem } from './Dropdown'
+import { Dropdown } from './Dropdown'
 
 export default function Nav({ isAuthenticated }: any) {
     const { user, logout } = useContext(AuthContext)
@@ -55,13 +55,19 @@ export default function Nav({ isAuthenticated }: any) {
                 </button>
             </li>
             <li className='nav-item'>
-                <DropdownButton onClick={() => redirect("/dashboard/profile")}>
-                    <img className='circled' draggable="false" src={DISCORD_AVATAR_URL + `${user.id}/${user.avatar}?size=16`} alt="" />
-                    {user.username}
-                </DropdownButton>
-                <Dropdown show={showUserDropdown}>
-                    <MenuItem>Profile</MenuItem>
-                    <MenuItem>Logout</MenuItem>
+                <Dropdown>
+                    <Dropdown.Button onClick={() => setShowUserDropdown(!showUserDropdown)} className="btn-link text-condensed">
+                       <img className='circled' src={DISCORD_AVATAR_URL + `${user.id}/${user.avatar}?size=16`} alt="" />
+                        {user.username}
+                    </Dropdown.Button>
+                    <Dropdown.Body show={showUserDropdown}>
+                        <Dropdown.Item onClick={()=> redirect('/dashboard/profile')}>
+                            Profile
+                        </Dropdown.Item>
+                        <Dropdown.Item onClick={performLogout}>
+                            Logout
+                        </Dropdown.Item>
+                    </Dropdown.Body>
                 </Dropdown>
             </li>
         </ul>

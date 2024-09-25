@@ -6,6 +6,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import Nav from './Nav';
+import { Dropdown } from './Dropdown';
 export function Header() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const { user, loading } = useContext(AuthContext);
@@ -31,31 +32,30 @@ export function Header() {
                                     Dashboard
                                 </button>
                             </li>
-                            <li className='nav-item text-condensed dropdown'>
-                                <button className='btn-link text-condensed' onClick={toggleDropdown}>
-                                    <FontAwesomeIcon icon={faEarthAmericas} color="white" size="sm" />
-                                    AbbyBotProject
-                                    <FontAwesomeIcon icon={faChevronDown} color="white" size="sm" />
-                                </button>
-                                {dropdownOpen && (
-                                    <ul className="dropdown-menu">
-                                        <li>
-                                            <a href="https://abbybot.cl">
+                            <li className='nav-item text-condensed'>
+                                <Dropdown>
+                                    <Dropdown.Button onClick={toggleDropdown}>
+                                        <FontAwesomeIcon icon={faEarthAmericas} color="white" size="sm" />
+                                        Dashboard
+                                    </Dropdown.Button>
+                                    <Dropdown.Body show={dropdownOpen}>
+                                        <Dropdown.Item>
+                                            <a className='text-dark' href="https://abbybot.cl">
                                                 <FontAwesomeIcon icon={faGlobe} size="sm" /> AbbyBot (website)
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://github.com/abbybot">
+                                        </Dropdown.Item>
+                                        <Dropdown.Item>
+                                            <a className='text-dark' href="https://github.com/abbybot">
                                                 <FontAwesomeIcon icon={faGithub} size="sm" /> GitHub Organization
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://reyesandfriends.cl/">
+                                        </Dropdown.Item>
+                                        <Dropdown.Item>
+                                            <a  className='text-dark' href="https://reyesandfriends.cl/">
                                                 <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" /> reyesandfriends.cl
                                             </a>
-                                        </li>
-                                    </ul>
-                                )}
+                                        </Dropdown.Item>
+                                    </Dropdown.Body>
+                                </Dropdown>
                             </li>
                         </ul>
                     </section>

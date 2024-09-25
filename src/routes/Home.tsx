@@ -1,7 +1,7 @@
 export default function Home() {
     return <>
         <main className="container-md mt-4">
-            <div style={{maxWidth: 563, marginBottom: "50px"}}>
+            <div style={{ maxWidth: 563, marginBottom: "50px" }}>
                 <h1 className="text-light">
                     Set AbbyBot, your server companion.
                 </h1>
@@ -16,8 +16,10 @@ export default function Home() {
                 <h4 className="text-light">
                     So.. let's start with an option
                 </h4>
-                <button className="btn-primary">Add AbbyBot to my server</button>
-                <button className="btn-secondary">Manage servers</button>
+                <div className="d-flex gap-3">
+                    <button className="btn-primary">Add AbbyBot to my server</button>
+                    <button className="btn-secondary">Manage servers</button>
+                </div>
             </div>
         </main>
     </>
