@@ -22,7 +22,7 @@ export function Header() {
                 <div style={{ width: "100%", display: "flex" }}>
                     <section className="brand btn-link rounded" onClick={() => redirect("/")}>
                         <img draggable="false" src={abbyLogo} alt="" width={50} height={50} />
-                        <span className='text-light text-mono'>AbbyBot-Dashboard</span>
+                        <span className='text-light text-mono' style={{ fontSize: "14px" }}>AbbyBot-Dashboard</span>
                     </section>
                     <section>
                         <ul className='nav'>
@@ -36,7 +36,7 @@ export function Header() {
                                 <Dropdown>
                                     <Dropdown.Button onClick={toggleDropdown}>
                                         <FontAwesomeIcon icon={faEarthAmericas} color="white" size="sm" />
-                                        Dashboard
+                                        AbbyBot Project
                                     </Dropdown.Button>
                                     <Dropdown.Body show={dropdownOpen}>
                                         <Dropdown.Item>

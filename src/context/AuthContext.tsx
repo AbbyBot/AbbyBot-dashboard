@@ -42,7 +42,12 @@ const AuthProvider = ({ children }: any) => {
             setCookie("at", data.data.access_token, { expires: data.data.expires_in, path: "/", secure: true, sameSite: "strict" });
             redirect()
         }
-        getCode();
+        try {
+            getCode();
+        } catch (error) {
+            return error;
+        }
+        
     }
 
     const logout = () => {
