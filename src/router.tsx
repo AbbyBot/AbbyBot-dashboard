@@ -1,16 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./routes/Home";
 import { Auth } from "./routes/Auth";
-import Layout from "./routes/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./routes/Dashboard";
 import Profile from "./routes/Profile";
 import TestComponents from "./routes/TestComponents";
+import React, { Suspense } from "react";
+import Spinner from "./components/Spinner";
+import SelectServer from "./routes/SelectServer";
+
+const Layout = React.lazy(() => import("./routes/Layout"))
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <Layout />,
+        element:  <Suspense fallback={<Spinner />}>
+            <Layout />
+        </Suspense>,
         children: [
             {
                 path: "",
@@ -22,11 +28,15 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: "",
-                        element: <Dashboard />,
+                        element: <Dashboard />
                     },
                     {
                         path: "profile",
                         element: <Profile />
+                    },
+                    {
+                        path: "select-server",
+                        element: <SelectServer/>
                     }
                 ]
             },

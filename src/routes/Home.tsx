@@ -9,7 +9,7 @@ export default function Home() {
     }, [])
 
     return <>
-        <main className={"container content grid grid-2" + ` ${ isReady ? "slideIn" : "" }`}>
+        <main className={"container grid grid-2" + ` ${ isReady ? "slideIn" : "" }`}>
             <section>
                 <div className="p-4">
                     <h1 className="text-light">
@@ -32,8 +32,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="d-flex gap-4 flex-center flex-center-items flex-column p-4">
-                <img draggable="false" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png" width={400} height={400} alt="" className="rounded" />
+            <section className="d-flex gap-4 flex-center flex-center-items flex-column p-4 mt-4">
+                <img draggable="false" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png" width={350} height={350} alt="" className="rounded" />
                 <div className="text-light text-center">
                     <p>
                         <strong>Abbybot's servers count:</strong> <i className="text-tertiary">0</i>

@@ -7,7 +7,7 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import { Dropdown } from './Dropdown';
-export function Header() {
+export default function Header() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const { user, loading } = useContext(AuthContext);
     const redirect = useNavigate();

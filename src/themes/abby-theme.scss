@@ -178,6 +178,58 @@ $active-darken-percent: 5%;
     }
   }
 
+  .btn-primary-outline {
+    border: 1px solid $abby-primary;
+    color: $abby-primary;
+
+    &:hover {
+      background-color: lighten($abby-primary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($abby-primary, 40%);
+    }
+  }
+
+  .btn-secondary-outline {
+    border: 1px solid $abby-secondary;
+    color: $abby-secondary;
+
+    &:hover {
+      background-color: lighten($abby-secondary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($abby-secondary, 40%);
+    }
+  }
+
+  .btn-tertiary-outline {
+    border: 1px solid $abby-tertiary;
+    color: $abby-tertiary;
+
+    &:hover {
+      background-color: lighten($abby-tertiary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($abby-tertiary, 40%);
+    }
+  }
+
+  .btn-warning-outline {
+    border: 1px solid $abby-warning;
+    color: $abby-warning;
+
+    &:hover {
+      background-color: lighten($abby-warning, 50%);
+    }
+
+    &:active {
+      background-color: lighten($abby-warning, 40%);
+    }
+  }
+
   .text-tertiary {
     color: $abby-tertiary;
   }
@@ -206,6 +258,17 @@ $active-darken-percent: 5%;
     width: 48px;
     height: 48px;
     border: 5px solid $abby-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  .spinner-sm {
+    width: 20px;
+    height: 20px;
+    border: 3px solid $abby-tertiary;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;

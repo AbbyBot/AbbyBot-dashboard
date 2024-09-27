@@ -6,10 +6,12 @@ import { AuthContext } from '../context/AuthContext'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Dropdown } from './Dropdown'
+import { Modal } from './Modal'
 
 export default function Nav({ isAuthenticated }: any) {
-    const { user, logout } = useContext(AuthContext)
+    const { user, logout, loading } = useContext(AuthContext)
     const [showUserDropdown, setShowUserDropdown] = useState(false)
+    const [showConfirmModal, setShowConfirmModal] = useState(false)
 
     const redirect = useNavigate()
     const performLogout = () => {
@@ -20,10 +22,14 @@ export default function Nav({ isAuthenticated }: any) {
     if (!isAuthenticated) {
         return <ul className='nav'>
             <li className='nav-item'>
-                <button className='btn-link text-condensed' onClick={() => window.location.href = `${DISCORD_BASE_URL}`}>
-                    <FontAwesomeIcon icon={faRightToBracket} color="white" size="sm" />
-                    Login
-                </button>
+                {!loading ?
+                    <button className='btn-link text-condensed' onClick={() => window.location.href = `${DISCORD_BASE_URL}`}>
+                        <FontAwesomeIcon icon={faRightToBracket} color="white" size="sm" />
+                        Login
+                    </button>
+                    :
+                    <div className='spinner spinner-sm'></div>
+                }
             </li>
         </ul>
     }
@@ -31,7 +37,7 @@ export default function Nav({ isAuthenticated }: any) {
     return <>
         <ul className='nav'>
             <li className='nav-item'>
-                <button className='btn-link text-condensed'>
+                <button className='btn-link text-condensed' onClick={() => redirect('/dashboard/select-server')}>
                     <FontAwesomeIcon icon={faServer} size="sm"></FontAwesomeIcon>
                     Manage servers
                 </button>
@@ -57,19 +63,29 @@ export default function Nav({ isAuthenticated }: any) {
             <li className='nav-item'>
                 <Dropdown>
                     <Dropdown.Button onClick={() => setShowUserDropdown(!showUserDropdown)} className="btn-link text-condensed">
-                       <img className='circled' src={DISCORD_AVATAR_URL + `${user.id}/${user.avatar}?size=16`} alt="" />
+                        <img className='circled' src={DISCORD_AVATAR_URL + `${user.id}/${user.avatar}?size=16`} alt="" />
                         {user.username}
                     </Dropdown.Button>
                     <Dropdown.Body show={showUserDropdown}>
-                        <Dropdown.Item onClick={()=> redirect('/dashboard/profile')}>
+                        <Dropdown.Item onClick={() => redirect('/dashboard/profile')}>
                             Profile
                         </Dropdown.Item>
-                        <Dropdown.Item onClick={performLogout}>
+                        <Dropdown.Item onClick={() => setShowConfirmModal(true)}>
                             Logout
                         </Dropdown.Item>
                     </Dropdown.Body>
                 </Dropdown>
             </li>
         </ul>
+        <Modal id="confirm-logout" visible={showConfirmModal}>
+            <Modal.Header title="Logout" onClose={() => setShowConfirmModal(false)} />
+            <Modal.Body>
+                Are you sure you want to logout?
+            </Modal.Body>
+            <Modal.Footer>
+                <Modal.Button color="btn-secondary" onClick={() => setShowConfirmModal(false)}>Cancel</Modal.Button>
+                <Modal.Button color="btn-primary" onClick={performLogout}>Logout</Modal.Button>
+            </Modal.Footer>
+        </Modal>
     </>
 }
