@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { DISCORD_ADD_BOT_URL } from "../env";
 
 export default function SelectServer() {
     const redirect = useNavigate();
@@ -11,7 +12,7 @@ export default function SelectServer() {
                     It seems you do not have AbbyBot on any server, nor are you on a server where AbbyBot is. :(
                 </p>
                 <div className="d-flex flex-center gap-4">
-                    <button className="btn-primary">Add AbbyBot to my server</button>
+                    <button className="btn-primary" onClick={() => window.open(DISCORD_ADD_BOT_URL, "_blank")}>Add AbbyBot to my server</button>
                     <button className="btn-secondary" onClick={() => redirect("/") }>Back to home</button>
                 </div>
             </section>

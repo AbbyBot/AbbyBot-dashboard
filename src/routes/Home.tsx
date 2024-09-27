@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { DISCORD_ADD_BOT_URL } from "../env"
 
 export default function Home() {
     const [isReady, setReady] = useState(true)
-
+    const redirect = useNavigate()
     useEffect(()=>{
         setReady(true)
         setTimeout(()=>{setReady(false)}, 500)
@@ -24,11 +26,12 @@ export default function Home() {
                 </div>
                 <div className="p-4">
                     <h2 className="text-light">
-                        So.. let's start with an option
+                        So.. let's start
                     </h2>
-                    <div className="d-flex gap-3">
-                        <button className="btn-primary">Add AbbyBot to my server</button>
-                        <button className="btn-secondary">Manage servers</button>
+                    <div className="d-flex gap-3 flex-center-items">
+                        <button className="btn-primary" onClick={() => window.open(DISCORD_ADD_BOT_URL, "_blank")}>Add AbbyBot to my server</button>
+                        <span className="text-light">or...</span>
+                        <button className="btn-secondary" onClick={() => redirect("/dashboard")}>Go to dashboard </button>
                     </div>
                 </div>
             </section>

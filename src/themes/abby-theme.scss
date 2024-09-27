@@ -42,7 +42,7 @@ $active-darken-percent: 5%;
   .header {
     display: flex;
     width: 100%;
-    padding: 7px 0px;
+    padding: 0px 0px;
   }
 
   .nav {
@@ -50,7 +50,7 @@ $active-darken-percent: 5%;
     user-select: none;
     list-style: none;
     gap: 10px;
-
+    margin: 15px 0px;
     .nav-item {
       color: $abby-navbar-text;
     }
@@ -73,8 +73,8 @@ $active-darken-percent: 5%;
   // this !!
   .brand {
     display: flex;
-    align-items: center;
-    gap: 5px;
+    // align-items: center;
+    gap: 30px;
     user-select: none;
     cursor: pointer;
     transition: 0.1s;
@@ -101,7 +101,7 @@ $active-darken-percent: 5%;
   .btn-link {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 10px;
     background-color: transparent;
     font-size: 16px;
     font-weight: 500;
@@ -227,6 +227,22 @@ $active-darken-percent: 5%;
 
     &:active {
       background-color: lighten($abby-warning, 40%);
+    }
+  }
+
+  .btn-sidebar {
+    display: flex;
+    // justify-content: space-between;
+    gap: 20px;
+    padding: 10px 30px;
+    border-radius: 0px;
+    background-color: $abby-navbar;
+    color: $abby-navbar-text;
+    border: none;
+
+    &:hover {
+      background-color: lighten($abby-navbar, $hover-darken-percent);
+      color: $abby-navbar-text;
     }
   }
 

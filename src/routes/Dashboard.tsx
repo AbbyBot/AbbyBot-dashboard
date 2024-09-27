@@ -1,10 +1,11 @@
 import { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
 import Spinner from "../components/Spinner";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
-
+  const redirect = useNavigate();
   if (user) {
     return <main className="container content d-flex flex-column flex-center slideIn" >
       <section className="grid grid-2 gap-4">
@@ -16,7 +17,7 @@ export default function Dashboard() {
             In the AbbyBot dashboard you can configure AbbyBot settings on your personal server, or on one that you manage, as long as AbbyBot is present on the server.
           </p>
           <div className="mt-4">
-            <button className="btn-primary">Select a server</button>
+            <button className="btn-primary" onClick={() => redirect("/dashboard/select-server") }>Select a server</button>
           </div>
         </div>
       </section>

@@ -18,20 +18,20 @@ export default function Header() {
 
     return (
         <header className="bg-navbar header">
-            <nav className='container navbar'>
+            <nav className='navbar pl-4 pr-4'>
                 <div style={{ width: "100%", display: "flex" }}>
-                    <section className="brand btn-link rounded" onClick={() => redirect("/")}>
-                        <img draggable="false" src={abbyLogo} alt="" width={50} height={50} />
-                        <span className='text-light text-mono' style={{ fontSize: "14px" }}>AbbyBot-Dashboard</span>
-                    </section>
+                    <button className='btn btn-link' onClick={() => redirect("/")}>
+                        <img draggable="false" src={abbyLogo} alt="" width={25} height={25} />
+                        <span className='text-light text-mono' style={{ fontSize: "14px" }}>AbbyBot Dashboard</span>
+                    </button>
                     <section>
                         <ul className='nav'>
-                            <li className='nav-item'>
+                            {user && <li className='nav-item'>
                                 <button className='btn-link text-condensed' onClick={() => redirect("/dashboard")}>
                                     <FontAwesomeIcon icon={faChartLine} color="white" size="sm" />
                                     Dashboard
                                 </button>
-                            </li>
+                            </li>}
                             <li className='nav-item text-condensed'>
                                 <Dropdown>
                                     <Dropdown.Button onClick={toggleDropdown}>
@@ -50,7 +50,7 @@ export default function Header() {
                                             </a>
                                         </Dropdown.Item>
                                         <Dropdown.Item>
-                                            <a  className='text-dark' href="https://reyesandfriends.cl/">
+                                            <a className='text-dark' href="https://reyesandfriends.cl/">
                                                 <FontAwesomeIcon icon={faExternalLinkAlt} size="sm" /> reyesandfriends.cl
                                             </a>
                                         </Dropdown.Item>
