@@ -1,19 +1,21 @@
-import { useState } from "react"
-import { Modal } from "../components/Modal"
-
-
+import { Modal } from "../components/Modal";
+import { useModal } from "../context/ModalProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 export default function TestComponents() {
-    const [show, setShow] = useState(false)
-    return <div>
-        <h1>Test components</h1>
-        <button onClick={() => setShow(!show)}>Open Modal</button>
-        <Modal id="modal" visible={show}>
-            {/* <Modal.Header title="Modal title" onClose={() => setShow(false)} /> */}
-            <Modal.Body> a body </Modal.Body>
-            <Modal.Footer>
-                <Modal.Button color="btn-primary" onClick={() => setShow(false)}>Close</Modal.Button>
-                <Modal.Button color="btn-secondary" onClick={() => {console.log("Yes!")}}>Ok</Modal.Button>
-            </Modal.Footer>
-        </Modal>
-    </div>
+    const { createModal, closeModal } = useModal();
+    const openModal = () => {
+        createModal({
+            title: "Success",
+            content: "Now you're logged in!",
+            buttons: [
+                <Modal.Button color="primary" onClick={closeModal}>Great!</Modal.Button>,
+            ],
+            icon: <FontAwesomeIcon color="green" icon={faCheckCircle} />,
+        })
+    }
+
+    return (
+        <button onClick={() => openModal()}>Open modal</button>
+    )
 }

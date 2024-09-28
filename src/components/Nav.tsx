@@ -7,17 +7,30 @@ import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Dropdown } from './Dropdown'
 import { Modal } from './Modal'
+import { useModal } from '../context/ModalProvider'
 
 export default function Nav({ isAuthenticated }: any) {
     const { user, logout, loading } = useContext(AuthContext)
+    const { createModal, closeModal } = useModal()
     const [showUserDropdown, setShowUserDropdown] = useState(false)
-    const [showConfirmModal, setShowConfirmModal] = useState(false)
 
     const redirect = useNavigate()
     const performLogout = () => {
         redirect('/')
         logout()
     }
+    const openModal = ()=> {
+        createModal({
+            title: "Logout",
+            content: "Are you sure you want to logout?",
+            buttons: [
+                <Modal.Button color="primary" onClick={performLogout}>Yes</Modal.Button>,
+                <Modal.Button color="secondary" onClick={closeModal}>Cancel</Modal.Button>,
+            ],
+            icon: <FontAwesomeIcon icon={faRightToBracket} size="sm" />
+        })
+    }
+    
     /* If user is not authenticated, display login button */
     if (!isAuthenticated) {
         return <ul className='nav'>
@@ -70,22 +83,12 @@ export default function Nav({ isAuthenticated }: any) {
                         <Dropdown.Item onClick={() => redirect('/dashboard/profile')}>
                             Profile
                         </Dropdown.Item>
-                        <Dropdown.Item onClick={() => setShowConfirmModal(true)}>
+                        <Dropdown.Item onClick={() => openModal()}>
                             Logout
                         </Dropdown.Item>
                     </Dropdown.Body>
                 </Dropdown>
             </li>
         </ul>
-        <Modal id="confirm-logout" visible={showConfirmModal}>
-            <Modal.Header title="Logout" onClose={() => setShowConfirmModal(false)} />
-            <Modal.Body>
-                Are you sure you want to logout?
-            </Modal.Body>
-            <Modal.Footer>
-                <Modal.Button color="btn-secondary" onClick={() => setShowConfirmModal(false)}>Cancel</Modal.Button>
-                <Modal.Button color="btn-primary" onClick={performLogout}>Logout</Modal.Button>
-            </Modal.Footer>
-        </Modal>
     </>
 }

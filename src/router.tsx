@@ -8,7 +8,6 @@ import TestComponents from "./routes/TestComponents";
 import React, { Suspense } from "react";
 import Spinner from "./components/Spinner";
 import SelectServer from "./routes/SelectServer";
-import Dashboard2 from "./routes/Dashboard2";
 
 const Layout = React.lazy(() => import("./routes/Layout"))
 
