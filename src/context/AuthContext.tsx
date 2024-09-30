@@ -1,13 +1,13 @@
 import axios from "axios";
 import { createContext, useState } from "react";
-import { DISCORD_BASE_URL, DISCORD_CLIENT_ID, DISCORD_SECRET, DISCORD_TOKEN__URL } from "../env";
+import { ABBYBOT_API_URL, DISCORD_BASE_URL, DISCORD_CLIENT_ID, DISCORD_SECRET, DISCORD_TOKEN__URL } from "../env";
 import { getCookie, removeCookie, setCookie } from "typescript-cookie";
 
 
 const AuthContext = createContext({
     user: null as any,
     loading: false,
-    isAuthenticated: false,
+    servers: null as any,
     login: () => { },
     authenticate: () => { },
     exchangeCode: (code: any, redirect: () => void) => { },
@@ -17,8 +17,9 @@ const AuthContext = createContext({
 
 const AuthProvider = ({ children }: any) => {
     const [user, setUser] = useState(null);
+    const [servers, setServers] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    
     const login = () => {
         window.location.href = DISCORD_BASE_URL;
     }
@@ -53,7 +54,6 @@ const AuthProvider = ({ children }: any) => {
     const logout = () => {
         window.location.href = "/";
         setUser(null);
-        setIsAuthenticated(false);
         removeCookie("at");
     }
     const authenticate = () => {
@@ -62,13 +62,16 @@ const AuthProvider = ({ children }: any) => {
         if (token && !user) {
             try {
                 const fetchUser = async () => {
-                    let data = await axios.get("https://discord.com/api/users/@me", {
+                    let userData = await axios.get("https://discord.com/api/users/@me", {
                         headers: {
                             "Authorization": `Bearer ${token}`
                         }
                     })
-                    setUser(data.data);
-                    setIsAuthenticated(true);
+                    setUser(userData.data);
+                    let serversData = await axios.get(ABBYBOT_API_URL + "/user-servers?user_id=" + userData.data.id, {
+                        headers: {}
+                    })
+                    setServers(serversData.data);
                 }
                 fetchUser();
                 
@@ -84,7 +87,7 @@ const AuthProvider = ({ children }: any) => {
     const value = {
         user,
         loading,
-        isAuthenticated,
+        servers,
         login,
         exchangeCode,
         authenticate,
