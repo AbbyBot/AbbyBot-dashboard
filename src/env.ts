@@ -5,4 +5,3 @@ export const DISCORD_SECRET = import.meta.env.VITE_DISCORD_SECRET;
 export const DISCORD_AVATAR_URL = "https://cdn.discordapp.com/avatars/"
 export const IN_PRODUCTION = import.meta.env.PROD as boolean;
 export const DISCORD_ADD_BOT_URL = import.meta.env.VITE_DISCORD_ADD_BOT_URL;
-export const ABBYBOT_API_URL = import.meta.env.VITE_ABBYBOT_API_URL;
