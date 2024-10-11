@@ -1,21 +1,18 @@
 import axios from "axios";
-import { createContext, useState } from "react";
-import { DISCORD_BASE_URL, DISCORD_CLIENT_ID, DISCORD_SECRET, DISCORD_TOKEN__URL } from "../env";
-import { getCookie, removeCookie, setCookie } from "typescript-cookie";
-
-
+import { DISCORD_CLIENT_ID, DISCORD_SECRET, DISCORD_BASE_URL, DISCORD_TOKEN__URL, ABBYBOT_API_URL } from "../environ";
+import { useState, createContext } from "react";
+import Cookies from "js-cookie";
 const AuthContext = createContext({
-    user: null as any,
+    user: null,
     loading: false,
     isAuthenticated: false,
     login: () => { },
     authenticate: () => { },
-    exchangeCode: (code: any, redirect: () => void) => { },
+    exchangeCode: (code, redirect) => { },
     logout: () => { },
 });
 
-
-const AuthProvider = ({ children }: any) => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -23,7 +20,7 @@ const AuthProvider = ({ children }: any) => {
         window.location.href = DISCORD_BASE_URL;
     }
 
-    const exchangeCode = (code: any, redirect: () => void) => {
+    const exchangeCode = (code, redirect) => {
         const getCode = async () => {
             let data = await axios.post(DISCORD_TOKEN__URL,
                 {
@@ -39,12 +36,13 @@ const AuthProvider = ({ children }: any) => {
                     }
                 }
             )
-            setCookie("at", data.data.access_token, { expires: data.data.expires_in, path: "/", secure: true, sameSite: "strict" });
+            document.cookie = `at=${data.data.access_token}; expires=${data.data.expires_in}; path=/; secure; sameSite=strict`;
             redirect()
         }
         try {
             getCode();
         } catch (error) {
+            console.log(error)
             return error;
         }
         
@@ -54,26 +52,28 @@ const AuthProvider = ({ children }: any) => {
         window.location.href = "/";
         setUser(null);
         setIsAuthenticated(false);
-        removeCookie("at");
+        document.cookie = "at=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; secure; sameSite=strict";
     }
     const authenticate = () => {
         setLoading(true);
-        const token = getCookie("at");
+        const token = Cookies.get("at");
         if (token && !user) {
-            try {
-                const fetchUser = async () => {
-                    let data = await axios.get("https://discord.com/api/users/@me", {
-                        headers: {
-                            "Authorization": `Bearer ${token}`
-                        }
-                    })
-                    setUser(data.data);
-                    setIsAuthenticated(true);
-                }
+            const fetchUser = async () => {
+                let userInfo = await axios.get("https://discord.com/api/users/@me", {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                })
+
+                let userServersInfo = await axios.get(`${ABBYBOT_API_URL}/user-servers?user_id=${userInfo.data.id}`);
+                setUser({data: userInfo.data, abbybot: userServersInfo.data});
+                setIsAuthenticated(true);
+            }
+
+            try { 
                 fetchUser();
-                
-                
-            } catch (error) {   
+            } catch (error) { 
+                console.log(error)  
                 return null;
             }
         }
@@ -91,7 +91,12 @@ const AuthProvider = ({ children }: any) => {
         logout
     }
 
-    return <AuthContext.Provider value={value}> {children} </AuthContext.Provider>
+    return (
+        <AuthContext.Provider value={value}>
+            {children}
+        </AuthContext.Provider>
+    );
 }
 
 export { AuthProvider, AuthContext }
+

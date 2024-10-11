@@ -14,49 +14,34 @@ $active-darken-percent: 5%;
 .abby-theme {
 
   // Background colors
-  .bg {
-    background-color: $abby-background
-  }
+  body { background-color: $abby-background; }
+  
+  .bg { background-color: $abby-background }
+  
+  .bg-primary { background-color: $abby-primary }
 
-  .bg-primary {
-    background-color: $abby-primary
-  }
+  .bg-secondary { background-color: $abby-secondary }
 
-  .bg-secondary {
-    background-color: $abby-secondary
-  }
-
-  .bg-tertiary {
-    background-color: $abby-tertiary
-  }
-
-  .bg-warning {
-    background-color: $abby-warning
-  }
-
-  .bg-navbar {
-    background-color: $abby-navbar
-  }
+  .bg-tertiary { background-color: $abby-tertiary }
+ 
+  .bg-warning { background-color: $abby-warning }
+ 
+  .bg-navbar { background-color: $abby-navbar }
 
   // Navbar & Header themes
-  .header {
-    display: flex;
-    width: 100%;
-    padding: 0px 0px;
-  }
-
   .nav {
     display: flex;
     user-select: none;
     list-style: none;
+    margin: 0;
+    padding: 7px 0px;
     gap: 10px;
-    margin: 15px 0px;
+
     .nav-item {
       color: $abby-navbar-text;
     }
   }
 
-  // this !!
   .navbar {
     display: flex;
     width: 100%;
@@ -64,24 +49,14 @@ $active-darken-percent: 5%;
     align-items: center;
   }
 
-  // header dropdown
-  .dropdown-menu li a:hover {
-    background-color: $abby-navbar;
-    color: white;
-  }
-
-  // this !!
   .brand {
     display: flex;
-    // align-items: center;
-    gap: 30px;
+    align-items: center;
+    gap: 10px;
     user-select: none;
     cursor: pointer;
     transition: 0.1s;
-
-    &:active {
-      transform: scale(0.95)
-    }
+    margin: 0px 30px 0px 0px;
   }
 
   // Buttons themes
@@ -103,13 +78,23 @@ $active-darken-percent: 5%;
     align-items: center;
     gap: 10px;
     background-color: transparent;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 5px 10px;
     color: white;
 
     &:hover {
       background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
+  .btn-link-selected {
+    background-color: lighten(#ffffff42, $hover-darken-percent);
+    color: $abby-tertiary;
+    &::before {
+      content: "";
+      border-radius: 30px;
+      height: 100%;
+      width: 3px;
+      background-color: $abby-tertiary;
+      margin-right: 0px;
     }
   }
 
@@ -232,7 +217,6 @@ $active-darken-percent: 5%;
 
   .btn-sidebar {
     display: flex;
-    // justify-content: space-between;
     gap: 20px;
     padding: 10px 30px;
     border-radius: 0px;
@@ -246,28 +230,30 @@ $active-darken-percent: 5%;
     }
   }
 
-  .text-tertiary {
-    color: $abby-tertiary;
+  .text-tertiary {color:$abby-tertiary}
+
+  .text-primary {color:$abby-primary}
+
+  .text-secondary {color:$abby-secondary}
+
+  .text-warning {color:$abby-warning}
+
+  .text-navbar {color:$abby-navbar}
+
+  .text-navbar-text {color:$abby-navbar-text}
+
+  .status-circle-ok {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: green;
   }
 
-  .text-primary {
-    color: $abby-primary;
-  }
-
-  .text-secondary {
-    color: $abby-secondary;
-  }
-
-  .text-warning {
-    color: $abby-warning;
-  }
-
-  .text-navbar {
-    color: $abby-navbar;
-  }
-
-  .text-navbar-text {
-    color: $abby-navbar-text;
+  .status-circle-offline {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: red;
   }
 
   .spinner {
@@ -296,7 +282,6 @@ $active-darken-percent: 5%;
     0% {
       transform: rotate(0deg);
     }
-
     100% {
       transform: rotate(360deg);
     }

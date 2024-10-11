@@ -7,8 +7,8 @@ export function Auth() {
     const [error, setError] = useState(false)
     const { exchangeCode, login } = useContext(AuthContext)
     const redirect = useNavigate();
-    let code = searchParams.get("code") as string
-    let error_description = searchParams.get("error_description") as string;
+    let code = searchParams.get("code")
+    let error_description = searchParams.get("error_description")
     useEffect(() => {
         if (code) {
             exchangeCode(code, () => {

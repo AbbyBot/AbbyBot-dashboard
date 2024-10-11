@@ -1,14 +1,14 @@
 import { useContext, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { getCookie } from "typescript-cookie";
+import Cookies from "js-cookie";
 
 export default function ProtectedRoute() {
-  const {isAuthenticated, login, loading} = useContext(AuthContext);
+  const {isAuthenticated, login, loading, user} = useContext(AuthContext);
   useEffect(() => {
-    if (!loading || !getCookie("at")) {
+    if (!loading || !Cookies.get("at")) {
       if(!isAuthenticated) {
-        login();
+        // login();
         return;
       }
     }
