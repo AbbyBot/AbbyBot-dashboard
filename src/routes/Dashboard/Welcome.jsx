@@ -38,31 +38,36 @@ export default function Welcome() {
     return <h1>loading...</h1>
   }
 
-  return <section className='d-flex gap-2 flex-wrap'>
-    <Card className='flex-grow-1'>
-      <div className='text-light fs-4'>
-        <strong>Welcome to dashboard, </strong> <i className='text-tertiary'>{user.data.username}</i>
-        <br />
-        <small>{user.data.email}</small>
-      </div>
-    </Card>
-    <Card>
-      <h1 className='m-1'>AbbyBot's status</h1>
-      <BotStatus status='Online' />
-    </Card>
-    <Card className='flex-grow-1'>
-      <h1 className='m-1'>Select a guild</h1>
-      <p className='m-1'>The system will only show servers where you are joined and AbbyBot is also
-        present, if your server does not appear, please reload the page.</p>
-      {user.abbybot.servers.length ?
-        <ServersList servers={user.abbybot.servers} /> : <NoServers />
-      }
-    </Card>
-    <Card >
-      <span className='fs-4 d-flex gap-2 flex-center-items'>
-        <h1 className='m-1'>Servers with AbbyBot</h1>
-        <strong className='text-tertiary'>{user.abbybot.servers.length}</strong>
-      </span>
-    </Card>
-  </section>
+  return (
+    <section className='d-flex gap-2 flex-wrap'>
+      <Card className='flex-grow-1' style={{flexBasis: '70%'}}>
+        <div className='text-light fs-4'>
+          <strong>Welcome to dashboard, </strong>
+          <i className='text-tertiary'>{user.data.username}</i>
+          <br />
+          <small>{user.data.email}</small>
+        </div>
+      </Card>
+      <Card className='flex-grow-1'>
+        <h1 className='m-1'>AbbyBot's status</h1>
+        <BotStatus status='Online' />
+      </Card>
+      <Card className='flex-grow-1' style={{flexBasis: '100%'}}>
+        <h1 className='m-1'>Select a guild</h1>
+        <p className='m-1'>The system will only show servers where you are joined and AbbyBot is also present. If your server does not appear, please reload the page.</p>
+        {user.abbybot.servers.length ? (
+          <ServersList servers={user.abbybot.servers} />
+        ) : (
+          <NoServers />
+        )}
+      </Card>
+      <Card>
+        <span className='fs-4 d-flex gap-2 flex-center-items'>
+          <h1 className='m-1'>Servers with AbbyBot</h1>
+          <strong className='text-tertiary'>{user.abbybot.servers.length}</strong>
+        </span>
+      </Card>
+    </section>
+  );
+  
 }
