@@ -577,7 +577,7 @@
 
 .modal-backdrop {
     position: fixed;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -594,7 +594,7 @@
     flex-direction: column;
     text-wrap: wrap;
     gap: 10px;
-    padding: 10px;
+    padding: 7px;
     background-color: white;
     min-width: 300px;
     max-width: 700px;
@@ -604,23 +604,21 @@
     display: flex;
     align-items: center;
     justify-content: end;
-    border-top: 1px solid #e0e0e0;
-    padding: 10px;
+    gap: 10px;
     width: 100%;
 }
 .modal-header {
     display: flex;
+    padding: 10px 10px;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 16px);
     justify-content: space-between;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 7px;
 }
 .modal-content {
     display: flex;
     flex-direction: column;
     padding: 7px;
-    width: 100%;
+    width: calc(100% - 16px);
     overflow: auto;
 }
 .modal-close-button {
@@ -630,6 +628,9 @@
     border: none;
     background-color: transparent;
     color: #b8b7b7;
+}
+.modal-show {
+    display: flex;
 }
 .content {
     flex-grow: 1;

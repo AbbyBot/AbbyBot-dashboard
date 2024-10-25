@@ -1,56 +1,18 @@
-import { faClose } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-
-
-const Modal = ({ children }) => {
-    return <div className='modal-backdrop'>{children}</div>
-}
-
-const ModalBody = ({ children }) => {
-    return <div className='modal-body rounded'>{children}</div>
-}
-
-const ModalFooter = ({ children }) => {
-    return <div className='modal-footer'>{children}</div>
-}
-
-const ModalHeader = ({ children }) => {
-    return <div className='modal-header'>
-        {children}
-        <button className='modal-close-button'><FontAwesomeIcon icon={faClose} /></button>
-    </div>
-}
-const ModalContent = ({ children }) => {
-    return <div className='modal-content'>{children}</div>
-}
-
-const ModalButton = ({ children }) => {
-    return <button className='btn-primary'>{children}</button>
-}
-
-Modal.Body = ModalBody
-Modal.Footer = ModalFooter
-Modal.Header = ModalHeader
-Modal.Button = ModalButton
-Modal.Content = ModalContent
-
+import { Modal } from "../components/Modal";
+import { useModal } from "../context/ModalProvider"
 
 export default function Test() {
+    const { createModal, dismissModal } = useModal();
+    const modal = createModal({
+        title: 'Logout',
+        body:  <h1>Are you sure?</h1>,
+        buttons: [
+            <Modal.Button className='btn-primary' onClick={dismissModal}>Yeah</Modal.Button>
+        ]
+    })
+
+
     return <main>
-        <button className='btn-primary'>Open modal</button>
-        <Modal>
-            <Modal.Body>
-                <Modal.Header>
-                    <h1>Success</h1>
-                </Modal.Header>
-                <Modal.Content>
-                    Hola!
-                </Modal.Content>
-                <Modal.Footer>
-                    <Modal.Button>Ok</Modal.Button>
-                </Modal.Footer>
-            </Modal.Body>
-        </Modal>
+        <button onClick={modal.show} className='btn-primary'>Open modal</button>
     </main>
 }

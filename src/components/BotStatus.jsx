@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function BotStatus({ status }) {
   return (
     <div className='text-light d-flex gap-2 flex-center-items'>

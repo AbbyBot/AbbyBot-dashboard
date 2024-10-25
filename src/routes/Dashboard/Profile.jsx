@@ -1,12 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import { DISCORD_AVATAR_URL } from '../../environ'
 import Card from '../../components/Card'
-import Dropdown from '../../components/Dropdown'
-// import { Dropdown } from '../../components/Dropdown'
+import ProfilePreferences from './ProfilePreferences'
+import Error from '../../components/Error'
 
 export default function Profile() {
-  const { user } = useContext(AuthContext)
+  const { user, error } = useContext(AuthContext)
+
+  if (error) {
+    useEffect(() => {
+      console.log(error.response)
+    })
+    return <Error message='Something went wrong! Try again later' error={error.response.data.error} />
+  }
+
+  if (!user) {
+    return <h1>loading...</h1>
+  }
+  
   return (
     <div className='text-light d-flex flex-column gap-2'>
       <Card className='d-flex gap-2 flex-grow-1'>
@@ -24,7 +36,7 @@ export default function Profile() {
       </Card>
       <Card>
         <h1 className='m-1'>What AbbyBot knows about you?</h1>
-        <section className='grid grid-2'>
+        <section className='grid grid-2 p-1'>
           <aside className='column-1'>
             <p className='d-flex flex-column'>
               <strong>Discord ID</strong>
@@ -42,30 +54,28 @@ export default function Profile() {
             <p>
               <strong>Account created at</strong>
               <br />
-              <i className='text-tertiary'></i>
+              <i className='text-tertiary'>{new Date(user.abbybot.userInfo.account_created_at).toLocaleString()}</i>
             </p>
           </aside>
           <aside className='column-1'>
             <p className='d-flex flex-column'>
               <strong>AbbyBot Privileges</strong>
-              <i className='text-tertiary'>{user.data.id}</i>
+              <i className='text-tertiary'>{user.abbybot.userInfo.privilege}</i>
             </p>
             <p className='d-flex flex-column'>
               <strong>Servers shared with abbybot</strong>
-              <i className='text-tertiary'>{user.abbybot.servers.length}</i>
+              <i className='text-tertiary'>{user.abbybot.userServers.servers.length}</i>
             </p>
             <p>
               <strong>User birthday</strong>
               <br />
-              <i className='text-tertiary'>{user.data.global_name}</i>
-            </p>
-            <p>
-              <strong>Theme</strong>
-              <br />
+              <i className='text-tertiary'>{user.abbybot.userInfo.user_birthday ? user.abbybot.userInfo.user_birthday : 'Not set'}</i>
             </p>
           </aside>
         </section>
-        <button className="btn-secondary" disabled>Save changes</button>
+      </Card>
+      <Card>
+        <ProfilePreferences />
       </Card>
     </div>
   )

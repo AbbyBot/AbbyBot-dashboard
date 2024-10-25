@@ -242,6 +242,20 @@ $active-darken-percent: 5%;
 
   .text-navbar-text {color:$abby-navbar-text}
 
+  .select {
+    background-color: transparent;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    & > option {
+      background-color: white;
+      color: black;
+    }
+  }
+
   .status-circle-ok {
     width: 10px;
     height: 10px;

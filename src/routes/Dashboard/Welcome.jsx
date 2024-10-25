@@ -4,6 +4,7 @@ import notFound from '../../assets/image-not-found.png'
 import Card from '../../components/Card'
 import BotStatus from '../../components/BotStatus'
 import { useNavigate } from 'react-router-dom'
+import Error from '../../components/Error'
 
 const NoServers = () => {
   return <div className='p-4'>
@@ -29,10 +30,14 @@ const ServersList = ({ servers }) => {
 
 /* Main Component */
 export default function Welcome() {
-  const { user, loading } = useContext(AuthContext)
+  const { user, error } = useContext(AuthContext)
   useEffect(() => {
-    console.log(user)
+    console.log(error.response)
   })
+
+  if (error) {
+    return <Error message='Something went wrong! Try again later' error={error.response.data.error} />
+  }
 
   if (!user) {
     return <h1>loading...</h1>
@@ -55,8 +60,8 @@ export default function Welcome() {
       <Card className='flex-grow-1' style={{flexBasis: '100%'}}>
         <h1 className='m-1'>Select a guild</h1>
         <p className='m-1'>The system will only show servers where you are joined and AbbyBot is also present. If your server does not appear, please reload the page.</p>
-        {user.abbybot.servers.length ? (
-          <ServersList servers={user.abbybot.servers} />
+        {user.abbybot.userServers.servers.length ? (
+          <ServersList servers={user.abbybot.userServers.servers} />
         ) : (
           <NoServers />
         )}
@@ -64,7 +69,7 @@ export default function Welcome() {
       <Card>
         <span className='fs-4 d-flex gap-2 flex-center-items'>
           <h1 className='m-1'>Servers with AbbyBot</h1>
-          <strong className='text-tertiary'>{user.abbybot.servers.length}</strong>
+          <strong className='text-tertiary'>{user.abbybot.userServers.servers.length}</strong>
         </span>
       </Card>
     </section>

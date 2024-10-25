@@ -6,6 +6,7 @@ const AuthContext = createContext({
     user: null,
     loading: false,
     isAuthenticated: false,
+    error: null,
     login: () => { },
     authenticate: () => { },
     exchangeCode: (code, redirect) => { },
@@ -16,6 +17,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [error, setError] = useState(null)
     const login = () => {
         window.location.href = DISCORD_BASE_URL;
     }
@@ -42,10 +44,9 @@ const AuthProvider = ({ children }) => {
         try {
             getCode();
         } catch (error) {
-            console.log(error)
             return error;
         }
-        
+
     }
 
     const logout = () => {
@@ -59,32 +60,26 @@ const AuthProvider = ({ children }) => {
         const token = Cookies.get("at");
         if (token && !user) {
             const fetchUser = async () => {
-                let userInfo = await axios.get("https://discord.com/api/users/@me", {
-                    headers: {
-                        "Authorization": `Bearer ${token}`
-                    }
-                })
-
-                let userServersInfo = await axios.get(`${ABBYBOT_API_URL}/user-servers?user_id=${userInfo.data.id}`);
-                setUser({data: userInfo.data, abbybot: userServersInfo.data});
-                setIsAuthenticated(true);
+                try {
+                    let userInfo = await axios.get("https://discord.com/api/users/@me", { headers: { "Authorization": `Bearer ${token}` } })
+                    let userServersInfo = await axios.get(`${ABBYBOT_API_URL}/user-servers?user_id=${userInfo.data.id}`);
+                    let abbyUserInfo = await axios.get(`${ABBYBOT_API_URL}/user-info?user_id=${userInfo.data.id}`);
+                    setUser({ data: userInfo.data, abbybot: { userServers: userServersInfo.data, userInfo: abbyUserInfo.data } });
+                    setIsAuthenticated(true);
+                } catch (error) {
+                    setError(error)
+                } 
             }
-
-            try { 
-                fetchUser();
-            } catch (error) { 
-                console.log(error)  
-                return null;
-            }
+            fetchUser()
         }
-        setLoading(false);
-        return null;
     }
+
 
     const value = {
         user,
         loading,
         isAuthenticated,
+        error,
         login,
         exchangeCode,
         authenticate,
@@ -97,6 +92,9 @@ const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 }
+
+
+
 
 export { AuthProvider, AuthContext }
 

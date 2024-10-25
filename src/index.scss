@@ -8,6 +8,7 @@
 body { margin: 0; overflow: hidden; }
 hr { margin: 5px 0px;  }
 h1 { font-size: 20px; }
+fieldset { border: 0; padding: 5px; margin: 0;}
 /* General elements styles */
 button {
   border: 0;
@@ -15,8 +16,9 @@ button {
   padding: 10px;
   margin: 0;
   text-align: start;
+  font-family: "Roboto";
   text-wrap: wrap;
-  font-weight: 600;
+  // font-weight: 600;
   overflow: hidden;
   transition: 0.1s;
   &:active { transform: scale(0.98) }
