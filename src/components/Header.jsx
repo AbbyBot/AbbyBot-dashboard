@@ -34,7 +34,7 @@ export default function Header() {
                 <div className='d-flex'>
                     <a className='brand' href='/'>
                         <img src={abbylogo} alt='Abbybot Logo' width={30} height={30} />
-                        <span className='text-light'>Abbybot's Dashboard</span>
+                        <span className='text-light'>AbbyBot Dashboard</span>
                     </a>
                     <Dropdown>
                         <Dropdown.Button bodyId='abbybot-project-dropdown'>
@@ -42,9 +42,8 @@ export default function Header() {
                             AbbyBot's Project
                         </Dropdown.Button>
                         <Dropdown.Body id='abbybot-project-dropdown'>
-                            <Dropdown.Item onClick={() => window.open("https://www.abbybot.cl", "_blank")}>Abbybot's Project (website)</Dropdown.Item>
-                            <Dropdown.Item>GitHub Organization</Dropdown.Item>
-                            <Dropdown.Item onClick={() => window.open("https://www.reyesandfriends.cl", "_blank")}>reyesandfriends.cl</Dropdown.Item>
+                            <Dropdown.Item onClick={() => window.open("https://www.abbybotproject.com", "_blank")}>AbbyBot Project (website)</Dropdown.Item>
+                            <Dropdown.Item onClick={() => window.open("https://github.com/abbybot", "_blank")}>GitHub Organization</Dropdown.Item>
                         </Dropdown.Body>
                     </Dropdown>
                 </div>

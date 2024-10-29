@@ -26,13 +26,13 @@ export default function Profile() {
       <Card className='d-flex gap-2 flex-grow-1'>
         <div className='d-flex flex-center-items flex-column'>
           <img className='circled' src={DISCORD_AVATAR_URL + `${user.data.id}/${user.data.avatar}`} alt="" />
-          <small className='m-1'>What a handsome uh?</small>
+          <small className='m-1'>Feeling cute, right?</small>
         </div>
         <div>
           <h1 className='m-1'>My Profile</h1>
           <p className='m-1'>
-            AbbyBot collects only public user data,
-            it will never use your personal information without authorization.
+            AbbyBot collects only public user data. It will never use your personal information without your authorization.
+            <br /><br />For more details, read our <a href="https://abbybotproject.com/#terms-and-conditions">privacy policy</a>.
           </p>
         </div>
       </Card>
