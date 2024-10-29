@@ -1,0 +1,377 @@
+/* mia color scheme */
+$mia-background: #F2C343;
+$mia-gradient: linear-gradient(180deg, #e0b238 0%, #d1a22f 25%, #b58a25 60%, #9d751c 100%);
+$mia-primary: #437EFF;
+$mia-secondary: #884337;
+$mia-tertiary: #cc7b34;
+$mia-warning: #C062E5;
+$mia-navbar: #4d3426;
+$mia-navbar-text: #ffffff;
+$mia-navbar-text-secondary: darken(#ffffff00, 20%);
+$hover-darken-percent: 4%;
+$active-darken-percent: 5%;
+
+/* mia Theme class */
+.mia-theme {
+
+  // Background colors
+  body { 
+    background: $mia-gradient, $mia-background;
+    background-size: cover;
+  }
+  
+  .bg { background-color: $mia-background }
+  
+  .bg-primary { background-color: $mia-primary }
+
+  .bg-secondary { background-color: $mia-secondary }
+
+  .bg-tertiary { background-color: $mia-tertiary }
+ 
+  .bg-warning { background-color: $mia-warning }
+ 
+  .bg-navbar { background-color: $mia-navbar }
+
+  // Navbar & Header themes
+  .nav {
+    display: flex;
+    user-select: none;
+    list-style: none;
+    margin: 0;
+    padding: 7px 0px;
+    gap: 10px;
+
+    .nav-item {
+      color: $mia-navbar-text;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.1s;
+    margin: 0px 30px 0px 0px;
+  }
+
+  // Buttons themes
+  .btn {
+    background-color: $mia-background;
+    color: white;
+
+    &:hover {
+      background-color: darken($mia-background, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($mia-background, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($mia-background, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
+  .btn-link-selected {
+    background-color: lighten(#ffffff42, $hover-darken-percent);
+    color: $mia-tertiary;
+    &::before {
+      content: "";
+      border-radius: 30px;
+      height: 100%;
+      width: 3px;
+      background-color: $mia-tertiary;
+      margin-right: 0px;
+    }
+  }
+
+  .btn-primary {
+    background-color: $mia-primary;
+    color: white;
+
+    &:hover {
+      background-color: darken($mia-primary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($mia-primary, $active-darken-percent);
+    }
+
+    &:disabled {
+      background-color: darken($mia-primary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary {
+    background-color: $mia-secondary;
+    color: white;
+
+    &:hover {
+      background-color: darken($mia-secondary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($mia-secondary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($mia-secondary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary {
+    background-color: $mia-tertiary;
+    color: black;
+
+    &:hover {
+      background-color: darken($mia-tertiary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($mia-tertiary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($mia-tertiary, $active-darken-percent);
+      color: darken(black, $active-darken-percent);
+    }
+  }
+
+  .btn-warning {
+    background-color: $mia-warning;
+    color: white;
+
+    &:hover {
+      background-color: darken($mia-warning, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($mia-warning, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($mia-warning, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-navbar {
+    background-color: $mia-navbar;
+    color: white;
+
+    &:hover {
+      background-color: darken($mia-navbar, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($mia-navbar, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($mia-navbar, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-primary-outline {
+    border: 1px solid $mia-primary;
+    color: $mia-primary;
+
+    &:hover {
+      background-color: lighten($mia-primary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($mia-primary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($mia-primary, 40%);
+      color: darken($mia-primary, $active-darken-percent);
+      border: 1px solid darken($mia-primary, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary-outline {
+    border: 1px solid $mia-secondary;
+    color: $mia-secondary;
+
+    &:hover {
+      background-color: lighten($mia-secondary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($mia-secondary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($mia-secondary, 40%);
+      color: darken($mia-secondary, $active-darken-percent);
+      border: 1px solid darken($mia-secondary, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary-outline {
+    border: 1px solid $mia-tertiary;
+    color: $mia-tertiary;
+
+    &:hover {
+      background-color: lighten($mia-tertiary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($mia-tertiary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($mia-tertiary, 40%);
+      color: darken($mia-tertiary, $active-darken-percent);
+      border: 1px solid darken($mia-tertiary, $active-darken-percent);
+    }
+  }
+
+  .btn-warning-outline {
+    border: 1px solid $mia-warning;
+    color: $mia-warning;
+
+    &:hover {
+      background-color: lighten($mia-warning, 50%);
+    }
+
+    &:active {
+      background-color: lighten($mia-warning, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($mia-warning, 40%);
+      color: darken($mia-warning, $active-darken-percent);
+      border: 1px solid darken($mia-warning, $active-darken-percent);
+    }
+  }
+
+  .btn-sidebar {
+    display: flex;
+    gap: 20px;
+    padding: 10px 30px;
+    border-radius: 0px;
+    background-color: $mia-navbar;
+    color: $mia-navbar-text;
+    border: none;
+
+    &:hover {
+      cursor: default;
+      background-color: lighten($mia-navbar, $hover-darken-percent);
+      color: $mia-navbar-text;
+    }
+  }
+
+  .text-tertiary {color:$mia-tertiary}
+
+  .text-primary {color:$mia-primary}
+
+  .text-secondary {color:$mia-secondary}
+
+  .text-warning {color:$mia-warning}
+
+  .text-navbar {color:$mia-navbar}
+
+  .text-navbar-text {color:$mia-navbar-text}
+
+    // a color in theme
+    a {
+      text-decoration: none;
+      color:$mia-primary;
+    }
+
+  .select {
+    background-color: transparent;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    & > option {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  .status-circle-ok {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: green;
+  }
+
+  .status-circle-offline {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: red;
+  }
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid $mia-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  .spinner-sm {
+    width: 20px;
+    height: 20px;
+    border: 3px solid $mia-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

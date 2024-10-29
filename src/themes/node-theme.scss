@@ -1,0 +1,377 @@
+/* node color scheme */
+$node-background: #3e6f3b;
+$node-gradient: linear-gradient(180deg, #4b8b46 0%, #3e763a 25%, #305e2f 60%, #254724 100%);
+$node-primary: #3ba01f;
+$node-secondary: #2d864a;
+$node-tertiary: #49f25f;
+$node-warning: #88AC9A;
+$node-navbar: #194331;
+$node-navbar-text: #ffffff;
+$node-navbar-text-secondary: darken(#ffffff00, 20%);
+$hover-darken-percent: 4%;
+$active-darken-percent: 5%;
+
+/* node Theme class */
+.node-theme {
+
+  // Background colors
+  body { 
+    background: $node-gradient, $node-background;
+    background-size: cover;
+  }
+  
+  .bg { background-color: $node-background }
+  
+  .bg-primary { background-color: $node-primary }
+
+  .bg-secondary { background-color: $node-secondary }
+
+  .bg-tertiary { background-color: $node-tertiary }
+ 
+  .bg-warning { background-color: $node-warning }
+ 
+  .bg-navbar { background-color: $node-navbar }
+
+  // Navbar & Header themes
+  .nav {
+    display: flex;
+    user-select: none;
+    list-style: none;
+    margin: 0;
+    padding: 7px 0px;
+    gap: 10px;
+
+    .nav-item {
+      color: $node-navbar-text;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.1s;
+    margin: 0px 30px 0px 0px;
+  }
+
+  // Buttons themes
+  .btn {
+    background-color: $node-background;
+    color: white;
+
+    &:hover {
+      background-color: darken($node-background, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($node-background, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($node-background, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
+  .btn-link-selected {
+    background-color: lighten(#ffffff42, $hover-darken-percent);
+    color: $node-tertiary;
+    &::before {
+      content: "";
+      border-radius: 30px;
+      height: 100%;
+      width: 3px;
+      background-color: $node-tertiary;
+      margin-right: 0px;
+    }
+  }
+
+  .btn-primary {
+    background-color: $node-primary;
+    color: white;
+
+    &:hover {
+      background-color: darken($node-primary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($node-primary, $active-darken-percent);
+    }
+
+    &:disabled {
+      background-color: darken($node-primary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary {
+    background-color: $node-secondary;
+    color: white;
+
+    &:hover {
+      background-color: darken($node-secondary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($node-secondary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($node-secondary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary {
+    background-color: $node-tertiary;
+    color: black;
+
+    &:hover {
+      background-color: darken($node-tertiary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($node-tertiary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($node-tertiary, $active-darken-percent);
+      color: darken(black, $active-darken-percent);
+    }
+  }
+
+  .btn-warning {
+    background-color: $node-warning;
+    color: white;
+
+    &:hover {
+      background-color: darken($node-warning, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($node-warning, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($node-warning, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-navbar {
+    background-color: $node-navbar;
+    color: white;
+
+    &:hover {
+      background-color: darken($node-navbar, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($node-navbar, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($node-navbar, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-primary-outline {
+    border: 1px solid $node-primary;
+    color: $node-primary;
+
+    &:hover {
+      background-color: lighten($node-primary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($node-primary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($node-primary, 40%);
+      color: darken($node-primary, $active-darken-percent);
+      border: 1px solid darken($node-primary, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary-outline {
+    border: 1px solid $node-secondary;
+    color: $node-secondary;
+
+    &:hover {
+      background-color: lighten($node-secondary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($node-secondary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($node-secondary, 40%);
+      color: darken($node-secondary, $active-darken-percent);
+      border: 1px solid darken($node-secondary, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary-outline {
+    border: 1px solid $node-tertiary;
+    color: $node-tertiary;
+
+    &:hover {
+      background-color: lighten($node-tertiary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($node-tertiary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($node-tertiary, 40%);
+      color: darken($node-tertiary, $active-darken-percent);
+      border: 1px solid darken($node-tertiary, $active-darken-percent);
+    }
+  }
+
+  .btn-warning-outline {
+    border: 1px solid $node-warning;
+    color: $node-warning;
+
+    &:hover {
+      background-color: lighten($node-warning, 50%);
+    }
+
+    &:active {
+      background-color: lighten($node-warning, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($node-warning, 40%);
+      color: darken($node-warning, $active-darken-percent);
+      border: 1px solid darken($node-warning, $active-darken-percent);
+    }
+  }
+
+  .btn-sidebar {
+    display: flex;
+    gap: 20px;
+    padding: 10px 30px;
+    border-radius: 0px;
+    background-color: $node-navbar;
+    color: $node-navbar-text;
+    border: none;
+
+    &:hover {
+      cursor: default;
+      background-color: lighten($node-navbar, $hover-darken-percent);
+      color: $node-navbar-text;
+    }
+  }
+
+  .text-tertiary {color:$node-tertiary}
+
+  .text-primary {color:$node-primary}
+
+  .text-secondary {color:$node-secondary}
+
+  .text-warning {color:$node-warning}
+
+  .text-navbar {color:$node-navbar}
+
+  .text-navbar-text {color:$node-navbar-text}
+
+    // a color in theme
+    a {
+      text-decoration: none;
+      color:$node-tertiary;
+    }
+
+  .select {
+    background-color: transparent;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    & > option {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  .status-circle-ok {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: green;
+  }
+
+  .status-circle-offline {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: red;
+  }
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid $node-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  .spinner-sm {
+    width: 20px;
+    height: 20px;
+    border: 3px solid $node-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

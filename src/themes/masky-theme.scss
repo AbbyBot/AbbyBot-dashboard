@@ -1,0 +1,377 @@
+/* masky color scheme */
+$masky-background: #444A74;
+$masky-gradient: linear-gradient(180deg, #2f3652 0%, #2b3149 25%, #272c3f 60%, #222636 100%);
+$masky-primary: #a22727;
+$masky-secondary: #515151;
+$masky-tertiary: #7DEDED;
+$masky-warning: #CF9C55;
+$masky-navbar: #1a1d30;
+$masky-navbar-text: #ffffff;
+$masky-navbar-text-secondary: darken(#ffffff00, 20%);
+$hover-darken-percent: 4%;
+$active-darken-percent: 5%;
+
+/* masky Theme class */
+.masky-theme {
+
+  // Background colors
+  body { 
+    background: $masky-gradient, $masky-background;
+    background-size: cover;
+  }
+  
+  .bg { background-color: $masky-background }
+  
+  .bg-primary { background-color: $masky-primary }
+
+  .bg-secondary { background-color: $masky-secondary }
+
+  .bg-tertiary { background-color: $masky-tertiary }
+ 
+  .bg-warning { background-color: $masky-warning }
+ 
+  .bg-navbar { background-color: $masky-navbar }
+
+  // Navbar & Header themes
+  .nav {
+    display: flex;
+    user-select: none;
+    list-style: none;
+    margin: 0;
+    padding: 7px 0px;
+    gap: 10px;
+
+    .nav-item {
+      color: $masky-navbar-text;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.1s;
+    margin: 0px 30px 0px 0px;
+  }
+
+  // Buttons themes
+  .btn {
+    background-color: $masky-background;
+    color: white;
+
+    &:hover {
+      background-color: darken($masky-background, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($masky-background, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($masky-background, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
+  .btn-link-selected {
+    background-color: lighten(#ffffff42, $hover-darken-percent);
+    color: $masky-tertiary;
+    &::before {
+      content: "";
+      border-radius: 30px;
+      height: 100%;
+      width: 3px;
+      background-color: $masky-tertiary;
+      margin-right: 0px;
+    }
+  }
+
+  .btn-primary {
+    background-color: $masky-primary;
+    color: white;
+
+    &:hover {
+      background-color: darken($masky-primary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($masky-primary, $active-darken-percent);
+    }
+
+    &:disabled {
+      background-color: darken($masky-primary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary {
+    background-color: $masky-secondary;
+    color: white;
+
+    &:hover {
+      background-color: darken($masky-secondary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($masky-secondary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($masky-secondary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary {
+    background-color: $masky-tertiary;
+    color: black;
+
+    &:hover {
+      background-color: darken($masky-tertiary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($masky-tertiary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($masky-tertiary, $active-darken-percent);
+      color: darken(black, $active-darken-percent);
+    }
+  }
+
+  .btn-warning {
+    background-color: $masky-warning;
+    color: white;
+
+    &:hover {
+      background-color: darken($masky-warning, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($masky-warning, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($masky-warning, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-navbar {
+    background-color: $masky-navbar;
+    color: white;
+
+    &:hover {
+      background-color: darken($masky-navbar, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($masky-navbar, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($masky-navbar, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-primary-outline {
+    border: 1px solid $masky-primary;
+    color: $masky-primary;
+
+    &:hover {
+      background-color: lighten($masky-primary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($masky-primary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($masky-primary, 40%);
+      color: darken($masky-primary, $active-darken-percent);
+      border: 1px solid darken($masky-primary, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary-outline {
+    border: 1px solid $masky-secondary;
+    color: $masky-secondary;
+
+    &:hover {
+      background-color: lighten($masky-secondary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($masky-secondary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($masky-secondary, 40%);
+      color: darken($masky-secondary, $active-darken-percent);
+      border: 1px solid darken($masky-secondary, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary-outline {
+    border: 1px solid $masky-tertiary;
+    color: $masky-tertiary;
+
+    &:hover {
+      background-color: lighten($masky-tertiary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($masky-tertiary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($masky-tertiary, 40%);
+      color: darken($masky-tertiary, $active-darken-percent);
+      border: 1px solid darken($masky-tertiary, $active-darken-percent);
+    }
+  }
+
+  .btn-warning-outline {
+    border: 1px solid $masky-warning;
+    color: $masky-warning;
+
+    &:hover {
+      background-color: lighten($masky-warning, 50%);
+    }
+
+    &:active {
+      background-color: lighten($masky-warning, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($masky-warning, 40%);
+      color: darken($masky-warning, $active-darken-percent);
+      border: 1px solid darken($masky-warning, $active-darken-percent);
+    }
+  }
+
+  .btn-sidebar {
+    display: flex;
+    gap: 20px;
+    padding: 10px 30px;
+    border-radius: 0px;
+    background-color: $masky-navbar;
+    color: $masky-navbar-text;
+    border: none;
+
+    &:hover {
+      cursor: default;
+      background-color: lighten($masky-navbar, $hover-darken-percent);
+      color: $masky-navbar-text;
+    }
+  }
+
+  .text-tertiary {color:$masky-tertiary}
+
+  .text-primary {color:$masky-primary}
+
+  .text-secondary {color:$masky-secondary}
+
+  .text-warning {color:$masky-warning}
+
+  .text-navbar {color:$masky-navbar}
+
+  .text-navbar-text {color:$masky-navbar-text}
+
+    // a color in theme
+    a {
+      text-decoration: none;
+      color:$masky-primary;
+    }
+
+  .select {
+    background-color: transparent;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    & > option {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  .status-circle-ok {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: green;
+  }
+
+  .status-circle-offline {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: red;
+  }
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid $masky-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  .spinner-sm {
+    width: 20px;
+    height: 20px;
+    border: 3px solid $masky-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

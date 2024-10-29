@@ -1,0 +1,377 @@
+/* d0z3r color scheme */
+$d0z3r-background: #484848;
+$d0z3r-gradient: linear-gradient(180deg, #2e2e2e 0%, #3a3a3a 25%, #444444 60%, #4f4f4f 100%);
+$d0z3r-primary: #A8272E;
+$d0z3r-secondary: #CCAD43;
+$d0z3r-tertiary: rgb(175, 0, 0);
+$d0z3r-warning: #703B59;
+$d0z3r-navbar: #262626;
+$d0z3r-navbar-text: #ffffff;
+$d0z3r-navbar-text-secondary: darken(#ffffff, 20%);
+$hover-darken-percent: 4%;
+$active-darken-percent: 5%;
+
+/* d0z3r Theme class */
+.d0z3r-theme {
+
+  // Background colors
+  body { 
+    background: $d0z3r-gradient, $d0z3r-background;
+    background-size: cover;
+  }
+  
+  .bg { background-color: $d0z3r-background }
+  
+  .bg-primary { background-color: $d0z3r-primary }
+
+  .bg-secondary { background-color: $d0z3r-secondary }
+
+  .bg-tertiary { background-color: $d0z3r-tertiary }
+ 
+  .bg-warning { background-color: $d0z3r-warning }
+ 
+  .bg-navbar { background-color: $d0z3r-navbar }
+
+  // Navbar & Header themes
+  .nav {
+    display: flex;
+    user-select: none;
+    list-style: none;
+    margin: 0;
+    padding: 7px 0px;
+    gap: 10px;
+
+    .nav-item {
+      color: $d0z3r-navbar-text;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.1s;
+    margin: 0px 30px 0px 0px;
+  }
+
+  // Buttons themes
+  .btn {
+    background-color: $d0z3r-background;
+    color: white;
+
+    &:hover {
+      background-color: darken($d0z3r-background, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($d0z3r-background, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($d0z3r-background, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
+  .btn-link-selected {
+    background-color: lighten(#ffffff42, $hover-darken-percent);
+    color: $d0z3r-tertiary;
+    &::before {
+      content: "";
+      border-radius: 30px;
+      height: 100%;
+      width: 3px;
+      background-color: $d0z3r-tertiary;
+      margin-right: 0px;
+    }
+  }
+
+  .btn-primary {
+    background-color: $d0z3r-primary;
+    color: white;
+
+    &:hover {
+      background-color: darken($d0z3r-primary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($d0z3r-primary, $active-darken-percent);
+    }
+
+    &:disabled {
+      background-color: darken($d0z3r-primary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary {
+    background-color: $d0z3r-secondary;
+    color: white;
+
+    &:hover {
+      background-color: darken($d0z3r-secondary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($d0z3r-secondary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($d0z3r-secondary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary {
+    background-color: $d0z3r-tertiary;
+    color: black;
+
+    &:hover {
+      background-color: darken($d0z3r-tertiary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($d0z3r-tertiary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($d0z3r-tertiary, $active-darken-percent);
+      color: darken(black, $active-darken-percent);
+    }
+  }
+
+  .btn-warning {
+    background-color: $d0z3r-warning;
+    color: white;
+
+    &:hover {
+      background-color: darken($d0z3r-warning, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($d0z3r-warning, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($d0z3r-warning, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-navbar {
+    background-color: $d0z3r-navbar;
+    color: white;
+
+    &:hover {
+      background-color: darken($d0z3r-navbar, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($d0z3r-navbar, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($d0z3r-navbar, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-primary-outline {
+    border: 1px solid $d0z3r-primary;
+    color: $d0z3r-primary;
+
+    &:hover {
+      background-color: lighten($d0z3r-primary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($d0z3r-primary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($d0z3r-primary, 40%);
+      color: darken($d0z3r-primary, $active-darken-percent);
+      border: 1px solid darken($d0z3r-primary, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary-outline {
+    border: 1px solid $d0z3r-secondary;
+    color: $d0z3r-secondary;
+
+    &:hover {
+      background-color: lighten($d0z3r-secondary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($d0z3r-secondary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($d0z3r-secondary, 40%);
+      color: darken($d0z3r-secondary, $active-darken-percent);
+      border: 1px solid darken($d0z3r-secondary, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary-outline {
+    border: 1px solid $d0z3r-tertiary;
+    color: $d0z3r-tertiary;
+
+    &:hover {
+      background-color: lighten($d0z3r-tertiary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($d0z3r-tertiary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($d0z3r-tertiary, 40%);
+      color: darken($d0z3r-tertiary, $active-darken-percent);
+      border: 1px solid darken($d0z3r-tertiary, $active-darken-percent);
+    }
+  }
+
+  .btn-warning-outline {
+    border: 1px solid $d0z3r-warning;
+    color: $d0z3r-warning;
+
+    &:hover {
+      background-color: lighten($d0z3r-warning, 50%);
+    }
+
+    &:active {
+      background-color: lighten($d0z3r-warning, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($d0z3r-warning, 40%);
+      color: darken($d0z3r-warning, $active-darken-percent);
+      border: 1px solid darken($d0z3r-warning, $active-darken-percent);
+    }
+  }
+
+  .btn-sidebar {
+    display: flex;
+    gap: 20px;
+    padding: 10px 30px;
+    border-radius: 0px;
+    background-color: $d0z3r-navbar;
+    color: $d0z3r-navbar-text;
+    border: none;
+
+    &:hover {
+      cursor: default;
+      background-color: lighten($d0z3r-navbar, $hover-darken-percent);
+      color: $d0z3r-navbar-text;
+    }
+  }
+
+  .text-tertiary {color:$d0z3r-tertiary}
+
+  .text-primary {color:$d0z3r-primary}
+
+  .text-secondary {color:$d0z3r-secondary}
+
+  .text-warning {color:$d0z3r-warning}
+
+  .text-navbar {color:$d0z3r-navbar}
+
+  .text-navbar-text {color:$d0z3r-navbar-text}
+
+    // a color in theme
+    a {
+      text-decoration: none;
+      color:$d0z3r-secondary;
+    }
+
+  .select {
+    background-color: transparent;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    & > option {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  .status-circle-ok {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: green;
+  }
+
+  .status-circle-offline {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: red;
+  }
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid $d0z3r-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  .spinner-sm {
+    width: 20px;
+    height: 20px;
+    border: 3px solid $d0z3r-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

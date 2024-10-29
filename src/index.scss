@@ -28,11 +28,14 @@ button {
     &:active { transform: scale(0.98) }
   }
 }
-a {
-  text-decoration: none;
-  color: aqua;
-}
+
 button:hover { cursor: pointer }
 
 /* Themes */
 @import "./themes/abby-theme.scss";
+@import "./themes/d0z3r-theme.scss";
+@import "./themes/masky-theme.scss";
+@import "./themes/nebulanight-theme.scss";
+@import "./themes/mia-theme.scss";
+@import "./themes/python-theme.scss";
+@import "./themes/node-theme.scss";

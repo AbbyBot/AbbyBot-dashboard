@@ -1,0 +1,377 @@
+/* python color scheme */
+$python-background: #2F5574;
+$python-gradient: linear-gradient(180deg, #3a688a 0%, #2f5574 25%, #25445f 60%, #1d3650 100%);
+$python-primary: #306998;
+$python-secondary: rgb(192, 151, 2);
+$python-tertiary: #bea14b;
+$python-warning: #FF8800;
+$python-navbar: #20263f;
+$python-navbar-text: #ffffff;
+$python-navbar-text-secondary: darken(#ffffff00, 20%);
+$hover-darken-percent: 4%;
+$active-darken-percent: 5%;
+
+/* python Theme class */
+.python-theme {
+
+  // Background colors
+  body { 
+    background: $python-gradient, $python-background;
+    background-size: cover;
+  }
+  
+  .bg { background-color: $python-background }
+  
+  .bg-primary { background-color: $python-primary }
+
+  .bg-secondary { background-color: $python-secondary }
+
+  .bg-tertiary { background-color: $python-tertiary }
+ 
+  .bg-warning { background-color: $python-warning }
+ 
+  .bg-navbar { background-color: $python-navbar }
+
+  // Navbar & Header themes
+  .nav {
+    display: flex;
+    user-select: none;
+    list-style: none;
+    margin: 0;
+    padding: 7px 0px;
+    gap: 10px;
+
+    .nav-item {
+      color: $python-navbar-text;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.1s;
+    margin: 0px 30px 0px 0px;
+  }
+
+  // Buttons themes
+  .btn {
+    background-color: $python-background;
+    color: white;
+
+    &:hover {
+      background-color: darken($python-background, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($python-background, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($python-background, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
+  .btn-link-selected {
+    background-color: lighten(#ffffff42, $hover-darken-percent);
+    color: $python-tertiary;
+    &::before {
+      content: "";
+      border-radius: 30px;
+      height: 100%;
+      width: 3px;
+      background-color: $python-tertiary;
+      margin-right: 0px;
+    }
+  }
+
+  .btn-primary {
+    background-color: $python-primary;
+    color: white;
+
+    &:hover {
+      background-color: darken($python-primary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($python-primary, $active-darken-percent);
+    }
+
+    &:disabled {
+      background-color: darken($python-primary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary {
+    background-color: $python-secondary;
+    color: white;
+
+    &:hover {
+      background-color: darken($python-secondary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($python-secondary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($python-secondary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary {
+    background-color: $python-tertiary;
+    color: black;
+
+    &:hover {
+      background-color: darken($python-tertiary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($python-tertiary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($python-tertiary, $active-darken-percent);
+      color: darken(black, $active-darken-percent);
+    }
+  }
+
+  .btn-warning {
+    background-color: $python-warning;
+    color: white;
+
+    &:hover {
+      background-color: darken($python-warning, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($python-warning, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($python-warning, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-navbar {
+    background-color: $python-navbar;
+    color: white;
+
+    &:hover {
+      background-color: darken($python-navbar, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($python-navbar, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($python-navbar, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-primary-outline {
+    border: 1px solid $python-primary;
+    color: $python-primary;
+
+    &:hover {
+      background-color: lighten($python-primary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($python-primary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($python-primary, 40%);
+      color: darken($python-primary, $active-darken-percent);
+      border: 1px solid darken($python-primary, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary-outline {
+    border: 1px solid $python-secondary;
+    color: $python-secondary;
+
+    &:hover {
+      background-color: lighten($python-secondary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($python-secondary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($python-secondary, 40%);
+      color: darken($python-secondary, $active-darken-percent);
+      border: 1px solid darken($python-secondary, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary-outline {
+    border: 1px solid $python-tertiary;
+    color: $python-tertiary;
+
+    &:hover {
+      background-color: lighten($python-tertiary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($python-tertiary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($python-tertiary, 40%);
+      color: darken($python-tertiary, $active-darken-percent);
+      border: 1px solid darken($python-tertiary, $active-darken-percent);
+    }
+  }
+
+  .btn-warning-outline {
+    border: 1px solid $python-warning;
+    color: $python-warning;
+
+    &:hover {
+      background-color: lighten($python-warning, 50%);
+    }
+
+    &:active {
+      background-color: lighten($python-warning, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($python-warning, 40%);
+      color: darken($python-warning, $active-darken-percent);
+      border: 1px solid darken($python-warning, $active-darken-percent);
+    }
+  }
+
+  .btn-sidebar {
+    display: flex;
+    gap: 20px;
+    padding: 10px 30px;
+    border-radius: 0px;
+    background-color: $python-navbar;
+    color: $python-navbar-text;
+    border: none;
+
+    &:hover {
+      cursor: default;
+      background-color: lighten($python-navbar, $hover-darken-percent);
+      color: $python-navbar-text;
+    }
+  }
+
+  .text-tertiary {color:$python-tertiary}
+
+  .text-primary {color:$python-primary}
+
+  .text-secondary {color:$python-secondary}
+
+  .text-warning {color:$python-warning}
+
+  .text-navbar {color:$python-navbar}
+
+  .text-navbar-text {color:$python-navbar-text}
+
+  // a color in theme
+  a {
+    text-decoration: none;
+    color:$python-primary;
+  }
+
+  .select {
+    background-color: transparent;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    & > option {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  .status-circle-ok {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: green;
+  }
+
+  .status-circle-offline {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: red;
+  }
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid $python-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  .spinner-sm {
+    width: 20px;
+    height: 20px;
+    border: 3px solid $python-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

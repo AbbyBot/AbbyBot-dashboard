@@ -1,0 +1,377 @@
+/* nebulanight color scheme */
+$nebulanight-background: #102E47;
+$nebulanight-gradient: linear-gradient(180deg, #184563 0%, #13354b 25%, #10293a 60%, #0c1f2f 100%);
+$nebulanight-primary: #b22081;
+$nebulanight-secondary: #7d36cf;
+$nebulanight-tertiary: #7CBEFF;
+$nebulanight-warning: #FDF599;
+$nebulanight-navbar: #281442;
+$nebulanight-navbar-text: #ffffff;
+$nebulanight-navbar-text-secondary: darken(#ffffff00, 20%);
+$hover-darken-percent: 4%;
+$active-darken-percent: 5%;
+
+/* nebulanight Theme class */
+.nebulanight-theme {
+
+  // Background colors
+  body { 
+    background: $nebulanight-gradient, $nebulanight-background;
+    background-size: cover;
+  }
+  
+  .bg { background-color: $nebulanight-background }
+  
+  .bg-primary { background-color: $nebulanight-primary }
+
+  .bg-secondary { background-color: $nebulanight-secondary }
+
+  .bg-tertiary { background-color: $nebulanight-tertiary }
+ 
+  .bg-warning { background-color: $nebulanight-warning }
+ 
+  .bg-navbar { background-color: $nebulanight-navbar }
+
+  // Navbar & Header themes
+  .nav {
+    display: flex;
+    user-select: none;
+    list-style: none;
+    margin: 0;
+    padding: 7px 0px;
+    gap: 10px;
+
+    .nav-item {
+      color: $nebulanight-navbar-text;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.1s;
+    margin: 0px 30px 0px 0px;
+  }
+
+  // Buttons themes
+  .btn {
+    background-color: $nebulanight-background;
+    color: white;
+
+    &:hover {
+      background-color: darken($nebulanight-background, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($nebulanight-background, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($nebulanight-background, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#ffffff42, $hover-darken-percent);
+    }
+  }
+
+  .btn-link-selected {
+    background-color: lighten(#ffffff42, $hover-darken-percent);
+    color: $nebulanight-tertiary;
+    &::before {
+      content: "";
+      border-radius: 30px;
+      height: 100%;
+      width: 3px;
+      background-color: $nebulanight-tertiary;
+      margin-right: 0px;
+    }
+  }
+
+  .btn-primary {
+    background-color: $nebulanight-primary;
+    color: white;
+
+    &:hover {
+      background-color: darken($nebulanight-primary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($nebulanight-primary, $active-darken-percent);
+    }
+
+    &:disabled {
+      background-color: darken($nebulanight-primary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary {
+    background-color: $nebulanight-secondary;
+    color: white;
+
+    &:hover {
+      background-color: darken($nebulanight-secondary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($nebulanight-secondary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($nebulanight-secondary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary {
+    background-color: $nebulanight-tertiary;
+    color: black;
+
+    &:hover {
+      background-color: darken($nebulanight-tertiary, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($nebulanight-tertiary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($nebulanight-tertiary, $active-darken-percent);
+      color: darken(black, $active-darken-percent);
+    }
+  }
+
+  .btn-warning {
+    background-color: $nebulanight-warning;
+    color: white;
+
+    &:hover {
+      background-color: darken($nebulanight-warning, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($nebulanight-warning, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($nebulanight-warning, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-navbar {
+    background-color: $nebulanight-navbar;
+    color: white;
+
+    &:hover {
+      background-color: darken($nebulanight-navbar, $hover-darken-percent);
+    }
+
+    &:active {
+      background-color: darken($nebulanight-navbar, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($nebulanight-navbar, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
+  }
+
+  .btn-primary-outline {
+    border: 1px solid $nebulanight-primary;
+    color: $nebulanight-primary;
+
+    &:hover {
+      background-color: lighten($nebulanight-primary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($nebulanight-primary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($nebulanight-primary, 40%);
+      color: darken($nebulanight-primary, $active-darken-percent);
+      border: 1px solid darken($nebulanight-primary, $active-darken-percent);
+    }
+  }
+
+  .btn-secondary-outline {
+    border: 1px solid $nebulanight-secondary;
+    color: $nebulanight-secondary;
+
+    &:hover {
+      background-color: lighten($nebulanight-secondary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($nebulanight-secondary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($nebulanight-secondary, 40%);
+      color: darken($nebulanight-secondary, $active-darken-percent);
+      border: 1px solid darken($nebulanight-secondary, $active-darken-percent);
+    }
+  }
+
+  .btn-tertiary-outline {
+    border: 1px solid $nebulanight-tertiary;
+    color: $nebulanight-tertiary;
+
+    &:hover {
+      background-color: lighten($nebulanight-tertiary, 50%);
+    }
+
+    &:active {
+      background-color: lighten($nebulanight-tertiary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($nebulanight-tertiary, 40%);
+      color: darken($nebulanight-tertiary, $active-darken-percent);
+      border: 1px solid darken($nebulanight-tertiary, $active-darken-percent);
+    }
+  }
+
+  .btn-warning-outline {
+    border: 1px solid $nebulanight-warning;
+    color: $nebulanight-warning;
+
+    &:hover {
+      background-color: lighten($nebulanight-warning, 50%);
+    }
+
+    &:active {
+      background-color: lighten($nebulanight-warning, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($nebulanight-warning, 40%);
+      color: darken($nebulanight-warning, $active-darken-percent);
+      border: 1px solid darken($nebulanight-warning, $active-darken-percent);
+    }
+  }
+
+  .btn-sidebar {
+    display: flex;
+    gap: 20px;
+    padding: 10px 30px;
+    border-radius: 0px;
+    background-color: $nebulanight-navbar;
+    color: $nebulanight-navbar-text;
+    border: none;
+
+    &:hover {
+      cursor: default;
+      background-color: lighten($nebulanight-navbar, $hover-darken-percent);
+      color: $nebulanight-navbar-text;
+    }
+  }
+
+  .text-tertiary {color:$nebulanight-tertiary}
+
+  .text-primary {color:$nebulanight-primary}
+
+  .text-secondary {color:$nebulanight-secondary}
+
+  .text-warning {color:$nebulanight-warning}
+
+  .text-navbar {color:$nebulanight-navbar}
+
+  .text-navbar-text {color:$nebulanight-navbar-text}
+
+    // a color in theme
+    a {
+      text-decoration: none;
+      color:$nebulanight-primary;
+    }
+
+  .select {
+    background-color: transparent;
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    & > option {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  .status-circle-ok {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: green;
+  }
+
+  .status-circle-offline {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: red;
+  }
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid $nebulanight-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  .spinner-sm {
+    width: 20px;
+    height: 20px;
+    border: 3px solid $nebulanight-tertiary;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

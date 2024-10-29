@@ -1,5 +1,6 @@
 /* abby color scheme */
 $abby-background: #B45428;
+$abby-gradient: linear-gradient(180deg, #b45428 0%, #a85733 25%, #9e5a37 60%, #b65930 100%);
 $abby-primary: #3E4D76;
 $abby-secondary: #28903E;
 $abby-tertiary: #F4D700;
@@ -14,7 +15,10 @@ $active-darken-percent: 5%;
 .abby-theme {
 
   // Background colors
-  body { background-color: $abby-background; }
+  body { 
+    background: $abby-gradient, $abby-background;
+    background-size: cover;
+  }
   
   .bg { background-color: $abby-background }
   
@@ -305,6 +309,12 @@ $active-darken-percent: 5%;
   .text-navbar {color:$abby-navbar}
 
   .text-navbar-text {color:$abby-navbar-text}
+
+    // a color in theme
+    a {
+      text-decoration: none;
+      color:$abby-secondary;
+    }
 
   .select {
     background-color: transparent;
