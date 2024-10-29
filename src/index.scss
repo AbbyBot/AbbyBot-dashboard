@@ -22,6 +22,11 @@ button {
   overflow: hidden;
   transition: 0.1s;
   &:active { transform: scale(0.98) }
+  &:disabled { 
+    user-select: none;
+    pointer-events: none;
+    &:active { transform: scale(0.98) }
+  }
 }
 a {
   text-decoration: none;

@@ -7,7 +7,9 @@ import Error from '../../components/Error'
 
 export default function Profile() {
   const { user, error } = useContext(AuthContext)
-
+  useEffect(() => {
+    console.log(user)
+  })
   if (error) {
     useEffect(() => {
       console.log(error.response)

@@ -7,7 +7,7 @@ $abby-warning: #703B59;
 $abby-navbar: #333333;
 $abby-navbar-text: #ffffff;
 $abby-navbar-text-secondary: darken(#ffffff, 20%);
-$hover-darken-percent: 2%;
+$hover-darken-percent: 4%;
 $active-darken-percent: 5%;
 
 /* Abby Theme class */
@@ -71,6 +71,12 @@ $active-darken-percent: 5%;
     &:active {
       background-color: darken($abby-background, $active-darken-percent);
     }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($abby-background, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
   }
 
   .btn-link {
@@ -109,6 +115,11 @@ $active-darken-percent: 5%;
     &:active {
       background-color: darken($abby-primary, $active-darken-percent);
     }
+
+    &:disabled {
+      background-color: darken($abby-primary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
   }
 
   .btn-secondary {
@@ -121,6 +132,12 @@ $active-darken-percent: 5%;
 
     &:active {
       background-color: darken($abby-secondary, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($abby-secondary, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
     }
   }
 
@@ -135,6 +152,12 @@ $active-darken-percent: 5%;
     &:active {
       background-color: darken($abby-tertiary, $active-darken-percent);
     }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($abby-tertiary, $active-darken-percent);
+      color: darken(black, $active-darken-percent);
+    }
   }
 
   .btn-warning {
@@ -147,6 +170,12 @@ $active-darken-percent: 5%;
 
     &:active {
       background-color: darken($abby-warning, $active-darken-percent);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($abby-warning, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
     }
   }
 
@@ -161,6 +190,12 @@ $active-darken-percent: 5%;
     &:active {
       background-color: darken($abby-navbar, $active-darken-percent);
     }
+
+    &:disabled {
+      cursor: default;
+      background-color: darken($abby-navbar, $active-darken-percent);
+      color: darken(white, $active-darken-percent);
+    }
   }
 
   .btn-primary-outline {
@@ -173,6 +208,13 @@ $active-darken-percent: 5%;
 
     &:active {
       background-color: lighten($abby-primary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($abby-primary, 40%);
+      color: darken($abby-primary, $active-darken-percent);
+      border: 1px solid darken($abby-primary, $active-darken-percent);
     }
   }
 
@@ -187,6 +229,13 @@ $active-darken-percent: 5%;
     &:active {
       background-color: lighten($abby-secondary, 40%);
     }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($abby-secondary, 40%);
+      color: darken($abby-secondary, $active-darken-percent);
+      border: 1px solid darken($abby-secondary, $active-darken-percent);
+    }
   }
 
   .btn-tertiary-outline {
@@ -199,6 +248,13 @@ $active-darken-percent: 5%;
 
     &:active {
       background-color: lighten($abby-tertiary, 40%);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($abby-tertiary, 40%);
+      color: darken($abby-tertiary, $active-darken-percent);
+      border: 1px solid darken($abby-tertiary, $active-darken-percent);
     }
   }
 
@@ -213,6 +269,13 @@ $active-darken-percent: 5%;
     &:active {
       background-color: lighten($abby-warning, 40%);
     }
+
+    &:disabled {
+      cursor: default;
+      background-color: lighten($abby-warning, 40%);
+      color: darken($abby-warning, $active-darken-percent);
+      border: 1px solid darken($abby-warning, $active-darken-percent);
+    }
   }
 
   .btn-sidebar {
@@ -225,6 +288,7 @@ $active-darken-percent: 5%;
     border: none;
 
     &:hover {
+      cursor: default;
       background-color: lighten($abby-navbar, $hover-darken-percent);
       color: $abby-navbar-text;
     }

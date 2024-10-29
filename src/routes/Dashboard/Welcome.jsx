@@ -5,6 +5,7 @@ import Card from '../../components/Card'
 import BotStatus from '../../components/BotStatus'
 import { useNavigate } from 'react-router-dom'
 import Error from '../../components/Error'
+import { BotContext } from '../../context/BotProvider'
 
 const NoServers = () => {
   return <div className='p-4'>
@@ -20,7 +21,7 @@ const ServersList = ({ servers }) => {
   const redirect = useNavigate()
 
   return <div className='d-flex gap-3 flex-wrap'>
-    {servers.map(server => <button onClick={() => redirect(`/dashboard/manage-servers?guild_id=${server.guild_id}`)} className='rounded flex-column btn-link p-3 border text-light'>
+    {servers.map((server, index) => <button key={`server-${index}`} onClick={() => redirect(`/dashboard/manage-servers?guild_id=${server.guild_id}`)} className='rounded flex-column btn-link p-3 border text-light'>
       <img draggable='false' className='rounded' width={150} src={server.guild_icon_url ? server.guild_icon_url : notFound} alt="" />
       {server.guild_name}
     </button>)}
@@ -31,9 +32,13 @@ const ServersList = ({ servers }) => {
 /* Main Component */
 export default function Welcome() {
   const { user, error } = useContext(AuthContext)
+  const botContext = useContext(BotContext)
+
+  const getStatus = async () => await botContext.getStatus()
+
   useEffect(() => {
-    console.log(error.response)
-  })
+    getStatus()
+  }, []) 
 
   if (error) {
     return <Error message='Something went wrong! Try again later' error={error.response.data.error} />
@@ -55,7 +60,7 @@ export default function Welcome() {
       </Card>
       <Card className='flex-grow-1'>
         <h1 className='m-1'>AbbyBot's status</h1>
-        <BotStatus status='Online' />
+        <BotStatus status={botContext.status} />
       </Card>
       <Card className='flex-grow-1' style={{flexBasis: '100%'}}>
         <h1 className='m-1'>Select a guild</h1>

@@ -4,9 +4,9 @@ import { faHome, faServer, faList, faGear, faUser } from '@fortawesome/free-soli
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 export default function Dashboard() {
-  const {user, loading} = useContext(AuthContext)
+  const { user, loading } = useContext(AuthContext)
 
-  const [activeButton, setActiveButton] = useState(null)
+  const [activeButton, setActiveButton] = useState(1)
   const { pathname } = useLocation()
   const redirect = useNavigate()
   let sideBarButtons = [
@@ -16,16 +16,19 @@ export default function Dashboard() {
     { id: 4, name: 'My Profile', icon: faUser, onClick: () => handleOnClick(4, '/dashboard/profile') },
     { id: 5, name: 'Settings', icon: faGear, onClick: () => handleOnClick(5, '/dashboard/settings') },
   ]
-  useEffect(() => {
-   const paths = {
+
+  let paths = {
     '/dashboard': 1,
     '/dashboard/manage-servers': 2,
     '/dashboard/logs': 3,
     '/dashboard/profile': 4,
     '/dashboard/settings': 5
-   }
-   setActiveButton(paths[pathname] || 1)
+  }
+
+  useEffect(() => {
+    setActiveButton(paths[pathname])
   }, [pathname])
+
   const handleOnClick = (buttonID, redirectUrl) => {
     setActiveButton(buttonID)
     redirect(redirectUrl)

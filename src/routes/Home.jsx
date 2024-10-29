@@ -1,20 +1,15 @@
 import abby from '../assets/abby.png'
 import { useNavigate } from 'react-router-dom'
-import { ABBYBOT_API_URL, DISCORD_ADD_BOT_URL } from '../environ';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { DISCORD_ADD_BOT_URL } from '../environ';
+import { useContext, useEffect} from 'react';
+import { BotContext } from '../context/BotProvider';
 export default function Home() {
     const redirect = useNavigate();
-    const [serversCount, setServersCount] = useState(0);
-    const [serverStatus, setServerStatus] = useState("Offline");
+    const botContext = useContext(BotContext)
+    const getStatus = async () => await botContext.getStatus()
 
     useEffect(()  => {
-        const fetchBotInfo = async () => {
-            let botInfo = await axios.get(`${ABBYBOT_API_URL}/bot-info`);
-            setServersCount(botInfo.data.server_count);
-            if (botInfo.data.status) setServerStatus(botInfo.data.status);
-        } 
-        fetchBotInfo();
+        getStatus()
     }, [])
 
     return (
@@ -35,8 +30,8 @@ export default function Home() {
 
             <section className='column-3 content fs-4 p-4 d-flex flex-column justify-content-center align-items-center gap-4'>
                 <img className='abby-animation' draggable={false} src={abby} alt="" style={{ objectFit: 'contain' }} height={400} />
-                <span className='text-center text-light'>Abbybots server's count: <i className='text-tertiary'>{ serversCount }</i></span>
-                <span className='text-center text-light'>Bot Status: <i className='text-tertiary'>{ serverStatus }</i></span>
+                <span className='text-center text-light'>Abbybots server's count: <i className='text-tertiary'>{ botContext.serversCount }</i></span>
+                <span className='text-center text-light'>Bot Status: <i className='text-tertiary'>{ botContext.status }</i></span>
             </section>
         </main>
     )

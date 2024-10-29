@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 
 export default function Layout() {
-    const { authenticate}  = useContext(AuthContext)
+    const { authenticate, user}  = useContext(AuthContext)
     
     useEffect (() => {
         authenticate()

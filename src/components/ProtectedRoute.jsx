@@ -8,7 +8,7 @@ export default function ProtectedRoute() {
   useEffect(() => {
     if (!loading || !Cookies.get("at")) {
       if(!isAuthenticated) {
-        // login();
+        login();
         return;
       }
     }
