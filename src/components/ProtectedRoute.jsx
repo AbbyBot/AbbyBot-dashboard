@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 export default function ProtectedRoute() {
   const {isAuthenticated, login, loading, user} = useContext(AuthContext);
   useEffect(() => {
-    if (!loading || !Cookies.get("at")) {
+    if (loading || !Cookies.get("at")) {
       if(!isAuthenticated) {
         login();
         return;

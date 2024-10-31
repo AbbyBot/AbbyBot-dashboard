@@ -1,7 +1,9 @@
 import axios from "axios";
 import { DISCORD_CLIENT_ID, DISCORD_SECRET, DISCORD_BASE_URL, DISCORD_TOKEN__URL, ABBYBOT_API_URL } from "../environ";
-import { useState, createContext } from "react";
+import { useState, createContext, useContext } from "react";
 import Cookies from "js-cookie";
+import { ThemeContext } from "./ThemeProvider";
+import { set } from "react-hook-form";
 const AuthContext = createContext({
     user: null,
     loading: false,
@@ -18,6 +20,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [error, setError] = useState(null)
+    const {setTheme} = useContext(ThemeContext);
     const login = () => {
         window.location.href = DISCORD_BASE_URL;
     }
@@ -38,7 +41,8 @@ const AuthProvider = ({ children }) => {
                     }
                 }
             )
-            document.cookie = `at=${data.data.access_token}; expires=${data.data.expires_in}; path=/; secure; sameSite=strict`;
+            console.log(data.data.expires_in)
+            Cookies.set("at", data.data.access_token, { expires: data.data.expires_in, path: "/", sameSite: "strict", secure: true } );
             redirect()
         }
         try {
@@ -65,13 +69,16 @@ const AuthProvider = ({ children }) => {
                     let userServersInfo = await axios.get(`${ABBYBOT_API_URL}/user-servers?user_id=${userInfo.data.id}`);
                     let abbyUserInfo = await axios.get(`${ABBYBOT_API_URL}/user-info?user_id=${userInfo.data.id}`);
                     setUser({ data: userInfo.data, abbybot: { userServers: userServersInfo.data, userInfo: abbyUserInfo.data } });
+                    setTheme(abbyUserInfo.data.theme.theme_class);
                     setIsAuthenticated(true);
                 } catch (error) {
                     setError(error)
-                } 
+                } finally {
+                    setLoading(false)
+                }
             }
             fetchUser()
-        }
+        } else { setLoading(false) }
     }
 
 

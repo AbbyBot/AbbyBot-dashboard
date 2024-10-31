@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useContext, useEffect } from "react"
 import { BotContext } from "../context/BotProvider"
 
