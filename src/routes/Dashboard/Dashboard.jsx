@@ -4,14 +4,16 @@ import { faHome, faServer, faList, faGear, faUser } from '@fortawesome/free-soli
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useLoading } from '../../context/LoadingContext';
+import Init from '../../components/Init'; 
 
 export default function Dashboard() {
   const { user, loading } = useContext(AuthContext);
   const { setIsLoading } = useLoading();
+  const [showLoading, setShowLoading] = useState(true); // Show loading screen
+  const redirect = useNavigate();
 
   const [activeButton, setActiveButton] = useState(1);
   const { pathname } = useLocation();
-  const redirect = useNavigate();
   let sideBarButtons = [
     { id: 1, name: 'Dashboard', icon: faHome, onClick: () => handleOnClick(1, '/dashboard') },
     { id: 2, name: 'Manage Servers', icon: faServer, onClick: () => handleOnClick(2, '/dashboard/manage-servers') },
@@ -64,6 +66,20 @@ export default function Dashboard() {
       });
     };
   }, [setIsLoading]);
+
+  useEffect(() => {
+    if (!user && !loading) {
+      setTimeout(() => {
+        window.location.href = 'https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=YOUR_PERMISSIONS';
+      }, 3000); // Wait 3 seconds before redirecting to the Discord OAuth2 URL
+    } else {
+      setShowLoading(false); // Ocultar la pantalla de carga si el usuario está logue ado
+    }
+  }, [user, loading]);
+
+  if (showLoading) {
+    return <Init />; // Show loading screen
+  }
 
   return (
     <section className='content d-flex'>
