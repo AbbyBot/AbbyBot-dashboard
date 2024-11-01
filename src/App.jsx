@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 import { LoadingProvider, useLoading } from './context/LoadingContext';
@@ -17,15 +17,14 @@ function App() {
   }, [setIsLoading]);
 
   return (
-    <Suspense fallback={<Init />}>
-      <RouterProvider router={router} />
-    </Suspense>
+    <RouterProvider router={router} />
   );
 }
 
 export default function Root() {
   return (
     <LoadingProvider>
+      <Init />
       <App />
     </LoadingProvider>
   );

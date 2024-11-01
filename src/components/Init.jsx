@@ -8,7 +8,7 @@ export default function Init() {
 
   useEffect(() => {
     AOS.init({
-      duration: 1200,
+      duration: 400, 
       easing: 'ease-in-out',
       once: false
     });
@@ -19,9 +19,17 @@ export default function Init() {
       ['A', 'b', 'b', 'y', 'B', 'o', 't'],
       ['S', 'm', 'i', 'l', 'e', ':', ')'],
       ['W', 'e', 'l', 'c', 'o', 'm', 'e'],
-      ['R', 'e', 'a', 'd', 'y', '?', '?'],
-      ['A', 'w', 'e', 's', 'o', 'm', 'e'],
-      ['A', 'b', 'i', 'g', 'a', 'i', 'l']
+      ['A', 'b', 'i', 'g', 'a', 'i', 'l'],
+      ['H', 'e', 'l', 'l', 'o', '!', '!'],
+      ['X', '*', 'X', '=', 'X', '²', '!'],
+      ['F', 'N', 'D', '0', 'Z', '3', 'R'],
+      ['Y', '*', 'Y', '=', 'Y', '²', ':)'],
+      ['L', 'e', 't', '\'', 's', ' ', ':)'],
+      ['M', 'o', 'r', 'e', ' ', '!', '!'],
+      ['<', '3', 'A', 'b', 'b', 'y', '<'],
+      ['L', 'u', 'c', 'k', 'y', '!', ':)'],
+      ['T', 'r', 'u', 'e', '=', ':)', ')'],
+      ['P', 'r', 'o', 'g', 'r', 'a', 'm'],
     ];
 
     function getRandomPhrase() {
@@ -36,9 +44,10 @@ export default function Init() {
           setTimeout(() => {
             dot.textContent = symbols[index] || '';
             dot.setAttribute('data-aos', 'zoom-in');
-          }, 700);
-        }, index * 500);
+          }, 250); 
+        }, index * 150); 
       });
+      setTimeout(resetDots, dots.length * 150 + 250); // Call resetDots after all dots have been transformed
     }
 
     function resetDots() {
@@ -46,15 +55,13 @@ export default function Init() {
         dot.textContent = '.';
         dot.setAttribute('data-aos', 'zoom-out');
       });
-      setTimeout(transformDots, 1000);
+      setTimeout(transformDots, 0); // Call transformDots after all dots have been reset
     }
 
     transformDots();
-    const interval = setInterval(() => {
-      resetDots();
-    }, 6000);
 
-    return () => clearInterval(interval);
+    // Delete clearInterval to stop the animation
+    return () => {};
   }, []);
 
   if (!isLoading) return null;
@@ -66,7 +73,7 @@ export default function Init() {
       alignItems: 'center', 
       height: '100vh', 
       background: 'linear-gradient(180deg, #b45428 0%, #a85733 25%, #9e5a37 60%, #b65930 100%)', 
-      fontFamily: "'Poppins', sans-serif", 
+      fontFamily: "'Roboto', sans-serif", 
       margin: 0 
     }}>
       <div id="eyecatch" style={{ 
@@ -77,32 +84,40 @@ export default function Init() {
       }}>
         <span className="transforming-dot" data-aos="fade-in" style={{ 
           opacity: 1, 
-          transition: 'opacity 1.2s ease, transform 1.2s ease' 
+          transition: 'opacity 0.6s ease, transform 0.6s ease' 
         }}>.</span>
         <span className="transforming-dot" data-aos="fade-in" style={{ 
           opacity: 1, 
-          transition: 'opacity 1.2s ease, transform 1.2s ease' 
+          transition: 'opacity 0.6s ease, transform 0.6s ease' 
         }}>.</span>
         <span className="transforming-dot" data-aos="fade-in" style={{ 
           opacity: 1, 
-          transition: 'opacity 1.2s ease, transform 1.2s ease' 
+          transition: 'opacity 0.6s ease, transform 0.6s ease' 
         }}>.</span>
         <span className="transforming-dot" data-aos="fade-in" style={{ 
           opacity: 1, 
-          transition: 'opacity 1.2s ease, transform 1.2s ease' 
+          transition: 'opacity 0.6s ease, transform 0.6s ease' 
         }}>.</span>
         <span className="transforming-dot" data-aos="fade-in" style={{ 
           opacity: 1, 
-          transition: 'opacity 1.2s ease, transform 1.2s ease' 
+          transition: 'opacity 0.6s ease, transform 0.6s ease' 
         }}>.</span>
         <span className="transforming-dot" data-aos="fade-in" style={{ 
           opacity: 1, 
-          transition: 'opacity 1.2s ease, transform 1.2s ease' 
+          transition: 'opacity 0.6s ease, transform 0.6s ease' 
         }}>.</span>
         <span className="transforming-dot" data-aos="fade-in" style={{ 
           opacity: 1, 
-          transition: 'opacity 1.2s ease, transform 1.2s ease' 
+          transition: 'opacity 0.6s ease, transform 0.6s ease' 
         }}>.</span>
+      </div>
+      <div style={{ 
+        position: 'absolute', 
+        bottom: '20px', 
+        fontSize: '2rem', 
+        color: '#ffffff' 
+      }}>
+        AbbyBot-Dashboard
       </div>
     </main>
   );
