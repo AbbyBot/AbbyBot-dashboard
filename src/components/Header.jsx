@@ -5,7 +5,7 @@ import { faGlobeAmericas, faSignIn } from '@fortawesome/free-solid-svg-icons'
 import abbylogo from '../assets/abbybot-logo.png'
 import { AuthContext } from '../context/AuthContext'
 import { DISCORD_AVATAR_URL } from '../environ'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useModal } from '../context/ModalProvider'
 import { Modal } from './Modal'
 
@@ -32,10 +32,10 @@ export default function Header() {
         <div className='mr-4 ml-4'>
             <nav className='navbar'>
                 <div className='d-flex'>
-                    <a className='brand' href='/'>
+                    <Link to='/' className='brand'>
                         <img src={abbylogo} alt='Abbybot Logo' width={30} height={30} />
                         <span className='text-light'>AbbyBot Dashboard</span>
-                    </a>
+                    </Link>
                     <Dropdown>
                         <Dropdown.Button bodyId='abbybot-project-dropdown'>
                             <FontAwesomeIcon icon={faGlobeAmericas} />

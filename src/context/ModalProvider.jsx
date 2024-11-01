@@ -18,6 +18,8 @@ export const ModalProvider = ({ children }) => {
 
     const createModal = ({ title, body, buttons }) => {
         const showModal = () => {
+            let modalBody = document.getElementById('abbybot-modal')
+            modalBody.classList.add('pop-in')
             setTitle(title)
             setBody(body)
             setButtons(buttons)
@@ -29,12 +31,24 @@ export const ModalProvider = ({ children }) => {
 
 
 
-    const dismissModal = () => setVisible(false)
+    const dismissModal = () => {
+        let modalBody = document.getElementById('abbybot-modal')
+        modalBody.classList.remove('pop-in')
+       
+        const hideModal = async () => {
+            modalBody.classList.add('pop-out')
+            await setTimeout(() => {
+                setVisible(false)
+                modalBody.classList.remove('pop-out')
+            }, 200)
+        }
+        hideModal()
+    }
 
     return <ModalContext.Provider value={{ createModal, dismissModal }}>
         {children}
         <Modal visible={visible}>
-                <Modal.Body>
+                <Modal.Body id='abbybot-modal'>
                     <Modal.Header dismiss={dismissModal}>
                         {title}
                     </Modal.Header>

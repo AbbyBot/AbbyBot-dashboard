@@ -19,7 +19,6 @@ export default function Dashboard() {
     { id: 2, name: 'Manage Servers', icon: faServer, onClick: () => handleOnClick(2, '/dashboard/manage-servers') },
     { id: 3, name: 'Logs', icon: faList, onClick: () => handleOnClick(3, '/dashboard/logs') },
     { id: 4, name: 'My Profile', icon: faUser, onClick: () => handleOnClick(4, '/dashboard/profile') },
-    { id: 5, name: 'Settings', icon: faGear, onClick: () => handleOnClick(5, '/dashboard/settings') },
   ];
 
   let paths = {

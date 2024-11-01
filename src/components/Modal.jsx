@@ -6,8 +6,8 @@ export const Modal = ({ children, visible }) => {
     return <div className={`modal-backdrop ${visible ? 'modal-show' : ''}`}>{children}</div>
 }
 
-const ModalBody = ({ children }) => {
-    return <div className='modal-body rounded'>{children}</div>
+const ModalBody = ({ children, id }) => {
+    return <div id={id} className='modal-body rounded'>{children}</div>
 }
 
 const ModalFooter = ({ children }) => {
