@@ -516,7 +516,7 @@
 }
 
 .w100 {
-    max-width: 100%
+    width: 100%
 }
 
 .container-sm {
@@ -717,3 +717,11 @@
 .pop-out {
     animation: PopOutAnimation 0.1s ease-in-out forwards;
 }
+
+.collapsed {
+    width: 50px;
+    transition: 0.3s;
+}
+
+.overflow-hidden { overflow: hidden; }
+.no-wrap {text-wrap: nowrap;}

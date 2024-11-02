@@ -4,7 +4,7 @@ import { faHome, faServer, faList, faGear, faUser } from '@fortawesome/free-soli
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useLoading } from '../../context/LoadingContext';
-import Init from '../../components/Init'; 
+import Init from '../../components/Init';
 
 export default function Dashboard() {
   const { user, loading } = useContext(AuthContext);
@@ -16,7 +16,7 @@ export default function Dashboard() {
   const { pathname } = useLocation();
   let sideBarButtons = [
     { id: 1, name: 'Dashboard', icon: faHome, onClick: () => handleOnClick(1, '/dashboard') },
-    { id: 2, name: 'Manage Servers', icon: faServer, onClick: () => handleOnClick(2, '/dashboard/manage-servers') },
+    { id: 2, name: 'Manage Guilds', icon: faServer, onClick: () => handleOnClick(2, '/dashboard/manage-servers') },
     { id: 3, name: 'Logs', icon: faList, onClick: () => handleOnClick(3, '/dashboard/logs') },
     { id: 4, name: 'My Profile', icon: faUser, onClick: () => handleOnClick(4, '/dashboard/profile') },
   ];
@@ -34,8 +34,12 @@ export default function Dashboard() {
   }, [pathname]);
 
   const handleOnClick = (buttonID, redirectUrl) => {
-    setActiveButton(buttonID);
+    if (redirectUrl === pathname) {
+      
+      
+    }
     redirect(redirectUrl);
+    setActiveButton(buttonID);
   };
 
   useEffect(() => {

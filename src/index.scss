@@ -18,8 +18,8 @@ button {
   text-align: start;
   font-family: "Roboto";
   text-wrap: wrap;
-  // font-weight: 600;
   overflow: hidden;
+  font-size: 14px;
   transition: 0.1s;
   &:active { transform: scale(0.98) }
   &:disabled { 
