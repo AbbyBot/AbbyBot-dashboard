@@ -6,8 +6,17 @@
 /* Global and variable settings */
 :root { font-family: "Roboto"; }
 body { margin: 0; overflow: hidden; }
-hr { margin: 5px 0px;  }
-h1 { font-size: 20px; }
+hr { 
+  margin: 10px 0px;  
+  border: 0;
+  &:after { 
+    content: ""; 
+    width: 100%;
+    height: 1px;
+    display: block;
+    background-color: #686868;
+  }
+}
 fieldset { border: 0; padding: 5px; margin: 0;}
 /* General elements styles */
 button {

@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ABBYBOT_API_URL } from '../../environ'
+import { ABBYBOT_API_URL } from '../../../environ'
 import axios from 'axios'
-import { AuthContext } from '../../context/AuthContext'
+import { AuthContext } from '../../../context/AuthContext'
 import { useForm } from 'react-hook-form'
-import { ThemeContext } from '../../context/ThemeProvider'
+import { ThemeContext } from '../../../context/ThemeProvider'
 export default function ProfilePreferences() {
     const [themes, setThemes] = useState([])
     const [isLoading, setLoading] = useState(false)
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const [disabled, setDisabled] = useState(true)
-    const {handleSubmit, register, watch} = useForm()
-    const {setTheme} = useContext(ThemeContext)
+    const { handleSubmit, register, watch } = useForm()
+    const { setTheme } = useContext(ThemeContext)
 
     const getThemes = async () => {
         let fetchThemes = await axios.get(`${ABBYBOT_API_URL}/abbybot-themes`)
@@ -30,7 +30,7 @@ export default function ProfilePreferences() {
         setTimeout(() => {
             setLoading(false)
         }, 2000);
-        
+
     }
 
     useEffect(() => {

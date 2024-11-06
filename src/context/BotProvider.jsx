@@ -10,7 +10,7 @@ export const BotContext = createContext({
 })
 
 export const BotProvider = ({ children }) => {
-    const [status, setStatus] = useState('offline')
+    const [status, setStatus] = useState('Offline')
     const [serversCount, setCount] = useState(0)
     const [isLoading, setLoading] = useState(false)
 

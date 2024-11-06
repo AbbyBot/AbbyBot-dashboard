@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react'
-import { AuthContext } from '../../context/AuthContext'
-import { DISCORD_AVATAR_URL } from '../../environ'
-import Card from '../../components/Card'
+import { AuthContext } from '../../../context/AuthContext'
+import { DISCORD_AVATAR_URL } from '../../../environ'
+import Card from '../../../components/Card'
 import ProfilePreferences from './ProfilePreferences'
-import Error from '../../components/Error'
+import Error from '../../../components/Error'
 
 export default function Profile() {
   const { user, error } = useContext(AuthContext)

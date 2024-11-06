@@ -10,10 +10,6 @@ export default function Layout() {
     useEffect (() => {
         authenticate()
     }, [])
-    
-    useEffect(() => {
-        console.log(loading)
-    }, [loading])
 
     if (loading) {
         return <Init/>

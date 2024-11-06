@@ -37,7 +37,7 @@ export default function Welcome() {
   const getStatus = async () => await botContext.getStatus()
 
   useEffect(() => {
-    getStatus()
+    
   }, []) 
 
   if (error) {
