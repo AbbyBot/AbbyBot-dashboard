@@ -39,7 +39,7 @@ export default function Header() {
                     <Dropdown>
                         <Dropdown.Button bodyId='abbybot-project-dropdown'>
                             <FontAwesomeIcon icon={faGlobeAmericas} />
-                            AbbyBot's Project
+                            AbbyBotProject
                         </Dropdown.Button>
                         <Dropdown.Body id='abbybot-project-dropdown'>
                             <Dropdown.Item onClick={() => window.open("https://www.abbybotproject.com", "_blank")}>AbbyBot Project (website)</Dropdown.Item>
