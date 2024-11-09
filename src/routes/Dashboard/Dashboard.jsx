@@ -17,14 +17,12 @@ export default function Dashboard() {
   let sideBarButtons = [
     { id: 1, name: 'Dashboard', icon: faHome, onClick: () => handleOnClick(1, '/dashboard') },
     { id: 2, name: 'Manage Guilds', icon: faServer, onClick: () => handleOnClick(2, '/dashboard/manage-servers') },
-    { id: 3, name: 'Logs', icon: faList, onClick: () => handleOnClick(3, '/dashboard/logs') },
     { id: 4, name: 'My Profile', icon: faUser, onClick: () => handleOnClick(4, '/dashboard/profile') },
   ];
 
   let paths = {
     '/dashboard': 1,
     '/dashboard/manage-servers': 2,
-    '/dashboard/logs': 3,
     '/dashboard/profile': 4,
     '/dashboard/settings': 5
   };

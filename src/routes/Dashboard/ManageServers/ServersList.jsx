@@ -14,7 +14,7 @@ export default function ServersList() {
         redirect(`/dashboard/manage-servers?guild_id=${guild_id}`)
     }
     
-    return <Card className={`d-flex flex-column gap-2 ${ !guild_id ? 'flex-grow-1' : ''}`} style={{minWidth: '200px'}}>
+    return <Card className={`d-flex flex-column sticky gap-2 ${ !guild_id ? 'flex-grow-1' : ''}`} style={{minWidth: '200px'}}z>
         <h3 className='m-1'>Your Guilds</h3>
         {abbybotServers.map((server, index) => (
             <button onClick={() => setGuild(server.guild_id)} className='btn-link' key={`srv-${index}`}>
