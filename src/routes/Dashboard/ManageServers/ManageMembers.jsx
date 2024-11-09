@@ -41,7 +41,7 @@ export default function ManageMembers() {
               <Table.Data>{member.username}</Table.Data>
               <Table.Data>{member.nickname_in_server}</Table.Data>
               <Table.Data>{member.user_type}</Table.Data>
-              <Table.Data>{member.birthday ?? 'Not Set'}</Table.Data>
+              <Table.Data>{member.birthday_date ?? 'Not Set'}</Table.Data>
               <Table.Data></Table.Data>
             </Table.Row>
           ))}
