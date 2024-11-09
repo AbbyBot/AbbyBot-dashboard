@@ -21,12 +21,11 @@ const NoServers = () => {
 
 const ServersList = ({ servers }) => {
   const setIcon = (is_admin, is_owner) => {
-    if (is_admin) {
-      return <FontAwesomeIcon icon={faShield} />
-    }
-
     if (is_owner) {
       return <FontAwesomeIcon icon={faCrown} />
+    }
+    if (is_admin) {
+      return <FontAwesomeIcon icon={faShield} />
     }
 
     return <FontAwesomeIcon icon={faUser} />
@@ -70,7 +69,7 @@ export default function Welcome() {
         </div>
       </Card>
       <Card className='flex-grow-1'>
-        <h1 className='m-1'>AbbyBot's status</h1>
+        <h1 className='m-1'>AbbyBot Status</h1>
         <BotStatus status={botContext.status} />
       </Card>
       <Card className='flex-grow-1' style={{ flexBasis: '100%' }}>
