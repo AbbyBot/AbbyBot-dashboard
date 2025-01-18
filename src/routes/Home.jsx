@@ -1,8 +1,11 @@
-import abby from '../assets/abby.png'
+import abby_online from '../assets/abby.png'
+import abby_offline from '../assets/abby-offline.png'
 import { useNavigate } from 'react-router-dom'
 import { DISCORD_ADD_BOT_URL } from '../environ';
 import { useContext, useEffect, useState } from 'react';
 import { BotContext } from '../context/BotProvider';
+
+import styles from './Home.module.scss' 
 
 export default function Home() {
     const redirect = useNavigate();
@@ -39,7 +42,14 @@ export default function Home() {
             </section>
 
             <section className='column-3 content fs-4 p-4 d-flex flex-column justify-content-center align-items-center gap-4'>
-                <img className='abby-animation' draggable={false} src={abby} alt="" style={{ objectFit: 'contain' }} height={400} />
+                <img 
+                    className={styles['abby-animation']} 
+                    draggable={false} 
+                    src={botContext.status === 'Online' ? abby_online : abby_offline} 
+                    alt="" 
+                    style={{ objectFit: 'contain' }} 
+                    height={400} 
+                />
                 <span className='text-center text-light'>Servers using AbbyBot: <i className='text-tertiary'>{ botContext.serversCount }</i></span>
                 <span className='text-center text-light'>Bot Status: <i className='text-tertiary'>{ botContext.status }</i></span>
             </section>
