@@ -29,10 +29,10 @@ export default function Home() {
         <main className='content container grid grid-6 p-4'>
             <section className='column-3 fs-4 p-4 text-light'>
                 <div>
-                    <h1>Set AbbyBot, your server companion.</h1>
+                    <h1>Manage AbbyBot, your server's versatile companion.</h1>
                     <p>
-                        AbbyBot is a multifunctional tool for administration and entertainment purposes for Discord servers. If you're here, I'm sure you already know this.
-                        In this panel you can configure it your way, either by changing its language, activating or deactivating events, among other functions.
+                        Welcome to the AbbyBot Administration Panel. AbbyBot is a multifunctional tool designed to enhance the administration and entertainment of your Discord server. 
+                        Through this panel, you can customize AbbyBot to suit your needs, including changing its language, enabling or disabling events, and accessing various other features.
                     </p>
                     <div className='d-flex gap-2'>
                         <button className='btn-primary fs-2 p-4' onClick={() => window.open(DISCORD_ADD_BOT_URL)}>Add AbbyBot to my server</button>
