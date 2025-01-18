@@ -11,8 +11,44 @@
   transition: opacity 0.3s ease-in-out;
   &.show {
     opacity: 1;
+    animation: slideIn 0.5s ease-in-out;
   }
   &.hide {
     opacity: 0;
+    animation: slideOut 1s ease-in-out;
   }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.toast-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
 }
