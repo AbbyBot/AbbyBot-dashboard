@@ -1,6 +1,13 @@
 .abby-animation {
-    animation: abby-animation 3s ease-in-out infinite alternate-reverse;
+    position: relative;
+    transition: opacity 0.6s ease-in-out;
+    opacity: 1;
 }
+
+.abby-sleeping {
+    opacity: 0.5; 
+}
+
 
 @keyframes abby-animation {
     0% {
