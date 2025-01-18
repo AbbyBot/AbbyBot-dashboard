@@ -24,6 +24,8 @@ export const BotProvider = ({ children }) => {
 
     useEffect(() => {
         getStatus();
+        const interval = setInterval(getStatus, 5000);
+        return () => clearInterval(interval);
     }, []);
 
     return (
