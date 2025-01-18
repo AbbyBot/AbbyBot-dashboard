@@ -36,7 +36,13 @@ export default function ServersList() {
                     className='btn-link' 
                     key={`srv-${index}`}
                 >
-                    <img className='circled' src={server.guild_icon_url} width={40} alt="" />
+                    <img 
+                        className='circled' 
+                        src={server.guild_icon_url} 
+                        width={40} 
+                        alt="" 
+                        style={{ filter: (server.is_admin || server.is_owner) ? 'none' : 'grayscale(100%)' }} 
+                    />
                     {setIcon(server.is_admin, server.is_owner)}
                     {server.guild_name}
                 </button>

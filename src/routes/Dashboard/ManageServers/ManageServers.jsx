@@ -55,7 +55,13 @@ export default function ManageServers() {
             content
           ) : (
             <Card className='d-flex flex-column align-items-center p-4'>
-              <img src={server.guild_icon_url || notFound} alt="Server Icon" width={100} className='mb-3 rounded' />
+              <img 
+                src={server.guild_icon_url || notFound} 
+                alt="Server Icon" 
+                width={100} 
+                className='mb-3 rounded' 
+                style={{ filter: isAuthorized ? 'none' : 'grayscale(100%)' }} 
+              />
               <h3>{server.guild_name}</h3>
               <p className='text-danger'>Sorry, You do not have permission to modify this server.</p>
               <p className='text-secondary'>Please contact the server owner or an admin for more information.</p>
@@ -67,7 +73,13 @@ export default function ManageServers() {
           )
         ) : (
           <Card className='d-flex flex-column align-items-center p-4'>
-            <img src={notFound} alt="Not Found" width={100} className='mb-3 rounded' />
+            <img 
+              src={notFound} 
+              alt="Not Found" 
+              width={100} 
+              className='mb-3 rounded' 
+              style={{ filter: 'grayscale(100%)' }} 
+            />
             <h3>Server Not Found</h3>
             <p className='text-danger'>The server you are looking for does not exist or is not registered.</p>
             <p className='text-secondary'>Please verify the server code and try again later.</p>

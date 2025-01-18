@@ -34,14 +34,29 @@ const ServersList = ({ servers }) => {
   const redirect = useNavigate()
 
   return <div className='d-flex gap-3 flex-wrap'>
-    {servers.map((server, index) => <button key={`server-${index}`} onClick={() => redirect(`/dashboard/manage-servers?guild_id=${server.guild_id}`)} className='rounded flex-column btn-link p-3 border text-light'>
-      <img draggable='false' className='rounded' width={150} src={server.guild_icon_url ? server.guild_icon_url : notFound} alt="" />
-      <span className='d-flex flex-center-items flex-center w100 gap-2'>
-        {setIcon(server.is_admin, server.is_owner)}
-        {server.guild_name}
-      </span>
-    </button>)}
-
+    {servers.map((server, index) => {
+      const isAdminOrOwner = server.is_admin || server.is_owner;
+      return (
+        <button 
+          key={`server-${index}`} 
+          onClick={() => redirect(`/dashboard/manage-servers?guild_id=${server.guild_id}`)} 
+          className='rounded flex-column btn-link p-3 border text-light'
+        >
+          <img 
+            draggable='false' 
+            className='rounded' 
+            width={150} 
+            src={server.guild_icon_url ? server.guild_icon_url : notFound} 
+            alt="" 
+            style={{ filter: isAdminOrOwner ? 'none' : 'grayscale(100%)' }}
+          />
+          <span className='d-flex flex-center-items flex-center w100 gap-2'>
+            {setIcon(server.is_admin, server.is_owner)}
+            {server.guild_name}
+          </span>
+        </button>
+      );
+    })}
   </div>
 }
 
