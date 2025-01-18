@@ -4,6 +4,8 @@ import axios from 'axios'
 import { AuthContext } from '../../../context/AuthContext'
 import { useForm } from 'react-hook-form'
 import { ThemeContext } from '../../../context/ThemeProvider'
+import Toast from '../../../components/Toast/Toast';
+
 export default function ProfilePreferences() {
     const [themes, setThemes] = useState([])
     const [isLoading, setLoading] = useState(false)
@@ -11,6 +13,7 @@ export default function ProfilePreferences() {
     const [disabled, setDisabled] = useState(true)
     const { handleSubmit, register, watch } = useForm()
     const { setTheme } = useContext(ThemeContext)
+    const [toastMessage, setToastMessage] = useState('');
 
     const getThemes = async () => {
         let fetchThemes = await axios.get(`${ABBYBOT_API_URL}/abbybot-themes`)
@@ -24,13 +27,14 @@ export default function ProfilePreferences() {
             user_id: user.data.id,
             theme_id: Number.parseInt(data.theme.split(';')[1])
         }
-        await axios.post(`${ABBYBOT_API_URL}/update-abbybot_theme`, postData)
         setDisabled(true)
         setLoading(true)
+        await axios.post(`${ABBYBOT_API_URL}/update-abbybot_theme`, postData)
+        setLoading(false);
+        setToastMessage('Theme updated successfully!');
         setTimeout(() => {
-            setLoading(false)
-        }, 2000);
-
+            setToastMessage(''); // Reset the toast message
+        }, 3000);
     }
 
     useEffect(() => {
@@ -63,5 +67,6 @@ export default function ProfilePreferences() {
                 </button>
             </div>
         </form>
+        {toastMessage && <Toast message={toastMessage} />}
     </>
 }
