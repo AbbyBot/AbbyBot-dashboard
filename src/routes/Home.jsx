@@ -43,7 +43,7 @@ export default function Home() {
 
             <section className='column-3 content fs-4 p-4 d-flex flex-column justify-content-center align-items-center gap-4'>
                 <img 
-                    className={styles['abby-animation']} 
+                    className={`${styles['abby-animation']} ${botContext.status === 'Offline' ? styles['abby-sleeping'] : ''}`} 
                     draggable={false} 
                     src={botContext.status === 'Online' ? abby_online : abby_offline} 
                     alt="" 
