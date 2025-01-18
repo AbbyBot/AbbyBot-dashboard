@@ -30,7 +30,7 @@ export default function Home() {
 
             <section className='column-3 content fs-4 p-4 d-flex flex-column justify-content-center align-items-center gap-4'>
                 <img className='abby-animation' draggable={false} src={abby} alt="" style={{ objectFit: 'contain' }} height={400} />
-                <span className='text-center text-light'>Abbybots server's count: <i className='text-tertiary'>{ botContext.serversCount }</i></span>
+                <span className='text-center text-light'>Servers using AbbyBot: <i className='text-tertiary'>{ botContext.serversCount }</i></span>
                 <span className='text-center text-light'>Bot Status: <i className='text-tertiary'>{ botContext.status }</i></span>
             </section>
         </main>
