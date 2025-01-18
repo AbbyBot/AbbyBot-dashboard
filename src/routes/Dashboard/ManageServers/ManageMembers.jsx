@@ -27,7 +27,7 @@ export default function ManageMembers() {
     getMembers()
   }, [guild_id])
 
-  let tableColumns = ['ID', 'Username', 'Nickname', 'User Type', 'Birthday', 'Actions']
+  let tableColumns = ['Username', 'Nickname', 'User Type', 'Birthday', 'Actions']
 
   return <>
     <Card className="d-flex gap-2">
@@ -43,19 +43,22 @@ export default function ManageMembers() {
             ))}
           </Table.Row>
         </Table.Header>
-        <Table.Body>
-          {members.map((member, index) => (
-            <Table.Row key={index}>
-              <Table.Data>{member.user_id}</Table.Data>
-              <Table.Data>{member.username}</Table.Data>
-              <Table.Data>{member.nickname_in_server}</Table.Data>
-              <Table.Data>{member.user_type}</Table.Data>
-              <Table.Data>{member.birthday_date ?? 'Not set'}</Table.Data>
-              <Table.Data></Table.Data>
-            </Table.Row>
-          ))}
-        </Table.Body>
       </Table>
+      <div style={{ overflowY: 'auto', maxHeight: '400px' }}>
+        <Table>
+          <Table.Body>
+            {members.map((member, index) => (
+              <Table.Row key={index}>
+                <Table.Data>{member.username}</Table.Data>
+                <Table.Data>{member.nickname_in_server}</Table.Data>
+                <Table.Data>{member.user_type}</Table.Data>
+                <Table.Data>{member.birthday_date ?? 'Not set'}</Table.Data>
+                <Table.Data>coming soon</Table.Data>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </div>
     </Card>
   </>
 }
