@@ -10,8 +10,17 @@ export default function ManageMembers() {
   const [members, setMembers] = useState([])
   const guild_id = searchParams.get('guild_id')
   const getMembers = async () => {
-    let fetchMembers = await axios.get(`${ABBYBOT_API_URL}/server-dashboard?guild_id=${guild_id}`)
-    setMembers(fetchMembers.data)
+    try {
+      let fetchMembers = await axios.get(`${ABBYBOT_API_URL}/server-dashboard?guild_id=${guild_id}`)
+      if (Array.isArray(fetchMembers.data.users)) {
+        setMembers(fetchMembers.data.users)
+      } else {
+        setMembers([])
+      }
+    } catch (error) {
+      console.error("Error fetching members:", error)
+      setMembers([])
+    }
   }
 
   useEffect(() => {
