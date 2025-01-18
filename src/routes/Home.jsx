@@ -1,16 +1,26 @@
 import abby from '../assets/abby.png'
 import { useNavigate } from 'react-router-dom'
 import { DISCORD_ADD_BOT_URL } from '../environ';
-import { useContext, useEffect} from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { BotContext } from '../context/BotProvider';
+
 export default function Home() {
     const redirect = useNavigate();
-    const botContext = useContext(BotContext)
-    const getStatus = async () => await botContext.getStatus()
+    const botContext = useContext(BotContext);
+    const [isLoading, setLoading] = useState(true);
 
-    useEffect(()  => {
-        getStatus()
-    }, [])
+    const getStatus = async () => {
+        await botContext.getStatus();
+        setLoading(false);
+    };
+
+    useEffect(() => {
+        getStatus();
+    }, []);
+
+    if (isLoading) {
+        return
+    }
 
     return (
         <main className='content container grid grid-6 p-4'>
@@ -34,5 +44,5 @@ export default function Home() {
                 <span className='text-center text-light'>Bot Status: <i className='text-tertiary'>{ botContext.status }</i></span>
             </section>
         </main>
-    )
+    );
 }
